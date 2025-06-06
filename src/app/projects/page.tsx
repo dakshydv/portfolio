@@ -47,30 +47,6 @@ const Portfolio = () => {
                 </p>
               </div>
             </div>
-
-            {projects.map((project, index) => (
-              <div key={index} className="p-4">
-                <div className="flex items-stretch justify-between gap-4 rounded-xl">
-                  <div className="flex flex-[2_2_0px] flex-col gap-4">
-                    <div className="flex flex-col gap-1">
-                      <p className="text-white text-base font-bold leading-tight">
-                        {project.title}
-                      </p>
-                      <p className="text-[#a1abb5] text-sm font-normal leading-normal">
-                        {project.description}
-                      </p>
-                    </div>
-                    <button className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-8 px-4 flex-row-reverse bg-[#2b3036] text-white text-sm font-medium leading-normal w-fit">
-                      <span className="truncate">View Project</span>
-                    </button>
-                  </div>
-                  <div
-                    className="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl flex-1"
-                    style={{ backgroundImage: `url("${project.image}")` }}
-                  />
-                </div>
-              </div>
-            ))}
           </div>
         </div>
       </div>
