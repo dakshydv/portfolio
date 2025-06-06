@@ -1,4 +1,4 @@
-import { Moon, Sun } from "lucide-react";
+import { Github, Linkedin, Mail, Moon, Sun, Twitter } from "lucide-react";
 import Link from "next/link";
 
 interface HeaderProps {
@@ -9,7 +9,7 @@ interface HeaderProps {
 export function Header({ isDarkTheme, toggleTheme }: HeaderProps) {
   return (
     <div
-      className={`flex items-center justify-between whitespace-nowrap border-b border-solid px-10 py-3 ${
+      className={`flex items-center justify-between whitespace-nowrap border-b border-solid px-10 py-5 ${
         isDarkTheme
           ? "text-white border-b-[#283039]"
           : "text-black border-b-gray-300"
@@ -26,33 +26,37 @@ export function Header({ isDarkTheme, toggleTheme }: HeaderProps) {
             className={`${
               isDarkTheme ? "hover:text-gray-300" : "hover:text-gray-700"
             } text-sm font-medium leading-normal transition-colors`}
-            href="/"
+            href="https://github.com/dakshydv"
+            target="_blank"
           >
-            Home
+            <Github />
           </Link>
           <Link
             className={`${
               isDarkTheme ? "hover:text-gray-300" : "hover:text-gray-700"
             } text-sm font-medium leading-normal transition-colors`}
-            href="/experience"
+            href="https://www.linkedin.com/in/daksh-dev/"
+            target="_blank"
           >
-            Experience
+            <Linkedin />
           </Link>
           <Link
             className={`${
               isDarkTheme ? "hover:text-gray-300" : "hover:text-gray-700"
             } text-sm font-medium leading-normal transition-colors`}
-            href="/projects"
+            href="https://x.com/dakshydv_"
+            target="_blank"
           >
-            Projects
+            <Twitter />
           </Link>
           <Link
             className={`${
               isDarkTheme ? "hover:text-gray-300" : "hover:text-gray-700"
             } text-sm font-medium leading-normal transition-colors`}
-            href="/contact"
+            href="mailto:dakshyadav.dev@gmail.com"
+            target="_blank"
           >
-            Contact
+            <Mail />
           </Link>
           <button onClick={toggleTheme}>
             {isDarkTheme ? <Moon /> : <Sun />}
