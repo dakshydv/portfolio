@@ -30,8 +30,8 @@ const Portfolio = () => {
                       Full Stack Developer
                     </p>
                     <p className="text-[#9cabba] text-base font-normal leading-normal text-center">
-                      I'm a software engineer specializing in building
-                      exceptional digital experiences. Currently, I'm focused on
+                      I&#39;m a software engineer specializing in building
+                      exceptional digital experiences. Currently, I&#39;m focused on
                       developing accessible, human-centered products at a tech
                       startup.
                     </p>
@@ -179,7 +179,7 @@ const Portfolio = () => {
               Contact
             </h2>
             <p className="text-white text-base font-normal leading-normal pb-3 pt-1 px-4 text-center">
-              I'm always open to discussing new projects, creative ideas, or
+              I&#39;m always open to discussing new projects, creative ideas, or
               opportunities to be part of your visions. Feel free to reach out!
             </p>
             <div className="flex justify-center">

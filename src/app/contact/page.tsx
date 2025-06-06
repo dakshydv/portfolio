@@ -38,7 +38,7 @@ export default function AlexPortfolioContact() {
               <div className="flex min-w-72 flex-col gap-3">
                 <p className="text-white tracking-light text-[32px] font-bold leading-tight">Get in Touch</p>
                 <p className="text-[#a1abb5] text-sm font-normal leading-normal">
-                  I'm always open to discussing new projects, creative ideas, or opportunities to collaborate. Feel free to reach out, and I'll get back to you as soon as possible.
+                  I&#39;m always open to discussing new projects, creative ideas, or opportunities to collaborate. Feel free to reach out, and I&#39;ll get back to you as soon as possible.
                 </p>
               </div>
             </div>
