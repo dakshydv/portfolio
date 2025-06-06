@@ -2,12 +2,7 @@
 import { Experience } from "@/components/Experience";
 import { Header } from "@/components/Header";
 import { Project } from "@/components/Projects";
-import {
-  Github,
-  Linkedin,
-  Mail,
-  Twitter,
-} from "lucide-react";
+import { Github, Linkedin, Mail, Twitter } from "lucide-react";
 import Link from "next/link";
 import React, { useState } from "react";
 
@@ -62,10 +57,10 @@ const Portfolio = () => {
         />
 
         {/* Main Content */}
-        <div className="px-40 flex flex-1 justify-center py-5">
-          <div className="layout-content-container flex flex-col max-w-[960px] flex-1">
+        <div className="px-4 sm:px-8 md:px-20 lg:px-40 flex flex-1 justify-center py-5">
+          <div className="layout-content-container flex flex-col w-full max-w-[960px] flex-1">
             {/* Hero Section */}
-            <div className="flex p-4">
+            <div className="flex p-2 sm:p-4">
               <div className="flex w-full flex-col gap-4 items-center">
                 <div className="flex gap-4 flex-col items-center">
                   <div
@@ -96,11 +91,11 @@ const Portfolio = () => {
             <h2
               className={`${
                 isDarkTheme ? "text-white" : "text-black"
-              } text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5`}
+              } text-[22px] font-bold leading-tight tracking-[-0.015em] px-2 sm:px-4 pb-3 pt-5`}
             >
               Featured Projects
             </h2>
-            <div className="grid grid-cols-[repeat(auto-fit,minmax(158px,1fr))] gap-3 p-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[repeat(auto-fit,minmax(158px,1fr))] gap-3 p-2 sm:p-4">
               {projects.map((project, index) => (
                 <Project
                   key={index}
@@ -113,7 +108,11 @@ const Portfolio = () => {
             </div>
 
             {/* Experience */}
-            <h2 className={`${isDarkTheme ? 'text-white' : 'text-black'} text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5`}>
+            <h2
+              className={`${
+                isDarkTheme ? "text-white" : "text-black"
+              } text-[22px] font-bold leading-tight tracking-[-0.015em] px-2 sm:px-4 pb-3 pt-5`}
+            >
               Experience
             </h2>
             <Experience isDarkTheme={isDarkTheme} />
@@ -122,11 +121,11 @@ const Portfolio = () => {
             <h2
               className={`${
                 isDarkTheme ? "text-white" : "text-black"
-              } text-xl font-bold leading-tight tracking-tight px-4 pb-3 pt-5`}
+              } text-xl font-bold leading-tight tracking-tight px-2 sm:px-4 pb-3 pt-5`}
             >
               Skills
             </h2>
-            <div className="flex gap-3 p-3 flex-wrap pr-4">
+            <div className="flex gap-2 sm:gap-3 p-2 sm:p-3 flex-wrap pr-2 sm:pr-4">
               {skills.map((skill, index) => (
                 <div
                   key={index}
@@ -151,23 +150,26 @@ const Portfolio = () => {
             <h2
               className={`${
                 isDarkTheme ? "text-white" : "text-black"
-              } text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5`}
+              } text-[22px] font-bold leading-tight tracking-[-0.015em] px-2 sm:px-4 pb-3 pt-5`}
             >
               Contact
             </h2>
             <p
               className={`${
                 isDarkTheme ? "text-white" : "text-black"
-              } text-base font-normal leading-normal pb-3 pt-1 px-4`}
+              } text-base font-normal leading-normal pb-3 pt-1 px-2 sm:px-4`}
             >
               I&#39;m always open to discussing new projects, creative ideas, or
               opportunities to be part of your visions. Feel free to reach out!
             </p>
-            <div className="flex p-4 gap-4">
+            <div className="flex p-2 sm:p-4 gap-4">
               <Link href="https://github.com/dakshydv" target="_blank">
                 <Github color={isDarkTheme ? "white" : "black"} />
               </Link>
-              <Link href="https://www.linkedin.com/in/daksh-dev/" target="_blank">
+              <Link
+                href="https://www.linkedin.com/in/daksh-dev/"
+                target="_blank"
+              >
                 <Linkedin color={isDarkTheme ? "white" : "black"} />
               </Link>
               <Link href="https://x.com/dakshydv_" target="_blank">
@@ -178,8 +180,8 @@ const Portfolio = () => {
               </Link>
             </div>
             {/* form */}
-            <div className="flex flex-col items-center">
-              <div className="flex max-w-[480px] md:min-w-[400px] flex-wrap items-end gap-4 px-4 py-3">
+            <div className="flex flex-col items-center w-full">
+              <div className="flex w-full max-w-[480px] md:min-w-[400px] flex-wrap items-end gap-4 px-2 sm:px-4 py-3">
                 <label className="flex flex-col min-w-40 flex-1">
                   <input
                     name="name"
@@ -193,7 +195,7 @@ const Portfolio = () => {
                 </label>
               </div>
 
-              <div className="flex max-w-[480px] md:min-w-[400px] flex-wrap items-end gap-4 px-4 py-3">
+              <div className="flex w-full max-w-[480px] md:min-w-[400px] flex-wrap items-end gap-4 px-2 sm:px-4 py-3">
                 <label className="flex flex-col min-w-40 flex-1">
                   <input
                     name="email"
@@ -208,7 +210,7 @@ const Portfolio = () => {
                 </label>
               </div>
 
-              <div className="flex max-w-[480px] md:min-w-[400px] flex-wrap items-end gap-4 px-4 py-3">
+              <div className="flex w-full max-w-[480px] md:min-w-[400px] flex-wrap items-end gap-4 px-2 sm:px-4 py-3">
                 <label className="flex flex-col min-w-40 flex-1">
                   <input
                     name="subject"
@@ -222,7 +224,7 @@ const Portfolio = () => {
                 </label>
               </div>
 
-              <div className="flex max-w-[480px] md:min-w-[400px] flex-wrap items-end gap-4 px-4 py-3">
+              <div className="flex w-full max-w-[480px] md:min-w-[400px] flex-wrap items-end gap-4 px-2 sm:px-4 py-3">
                 <label className="flex flex-col min-w-40 flex-1">
                   <textarea
                     name="message"
@@ -236,7 +238,7 @@ const Portfolio = () => {
                 </label>
               </div>
 
-              <div className="flex px-4 py-3 justify-start">
+              <div className="flex px-2 sm:px-4 py-3 justify-start">
                 <button
                   type="button"
                   className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 bg-[#d2e2f3] text-[#121417] text-sm font-bold leading-normal tracking-[0.015em]"

@@ -9,18 +9,20 @@ interface HeaderProps {
 export function Header({ isDarkTheme, toggleTheme }: HeaderProps) {
   return (
     <div
-      className={`flex items-center justify-between whitespace-nowrap border-b border-solid px-10 py-5 ${
+      className={`flex items-center justify-between whitespace-nowrap border-b border-solid px-4 sm:px-10 py-5 ${
         isDarkTheme
           ? "text-white border-b-[#283039]"
           : "text-black border-b-gray-300"
       }`}
     >
-      <div className={`flex items-center gap-4 `}>
+      <div
+        className={`flex items-center gap-4 w-full sm:w-auto justify-center sm:justify-start`}
+      >
         <h2 className="text-lg font-bold leading-tight tracking-tight">
           Daksh&#39;s Portfolio
         </h2>
       </div>
-      <div className="flex flex-1 justify-end gap-8">
+      <div className="hidden sm:flex flex-1 justify-end gap-8">
         <div className="flex items-center gap-9">
           <Link
             className={`${
