@@ -8,6 +8,7 @@ import {
   Mail,
   Twitter,
 } from "lucide-react";
+import Link from "next/link";
 import React, { useState } from "react";
 
 const Portfolio = () => {
@@ -163,18 +164,18 @@ const Portfolio = () => {
               opportunities to be part of your visions. Feel free to reach out!
             </p>
             <div className="flex p-4 gap-4">
-              <a href="?">
+              <Link href="https://github.com/dakshydv" target="_blank">
                 <Github color={isDarkTheme ? "white" : "black"} />
-              </a>
-              <a href="?">
+              </Link>
+              <Link href="https://www.linkedin.com/in/daksh-dev/" target="_blank">
                 <Linkedin color={isDarkTheme ? "white" : "black"} />
-              </a>
-              <a href="?">
+              </Link>
+              <Link href="https://x.com/dakshydv_" target="_blank">
                 <Twitter color={isDarkTheme ? "white" : "black"} />
-              </a>
-              <a href="?">
+              </Link>
+              <Link href="mailto:dakshyadav.dev@gmail.com" target="_blank">
                 <Mail color={isDarkTheme ? "white" : "black"} />
-              </a>
+              </Link>
             </div>
             {/* form */}
             <div className="flex flex-col items-center">
