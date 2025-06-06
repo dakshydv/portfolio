@@ -16,11 +16,16 @@ export function Header({ isDarkTheme, toggleTheme }: HeaderProps) {
       }`}
     >
       <div
-        className={`flex items-center gap-4 w-full sm:w-auto justify-center sm:justify-start`}
+        className={`flex items-center gap-4 w-full sm:w-auto px-3`}
       >
         <h2 className="text-lg font-bold leading-tight tracking-tight">
           Daksh&#39;s Portfolio
         </h2>
+      </div>
+      <div className="flex sm:hidden">
+        <button onClick={toggleTheme}>
+          {isDarkTheme ? <Moon /> : <Sun />}
+        </button>
       </div>
       <div className="hidden sm:flex flex-1 justify-end gap-8">
         <div className="flex items-center gap-9">
