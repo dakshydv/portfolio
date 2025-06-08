@@ -9,15 +9,13 @@ interface HeaderProps {
 export function Header({ isDarkTheme, toggleTheme }: HeaderProps) {
   return (
     <div
-      className={`flex items-center justify-between whitespace-nowrap border-b border-solid px-4 sm:px-10 py-5 ${
+      className={`flex max-w-[960px] w-full items-center justify-between whitespace-nowrap border-b border-solid px-4 sm:px-3 py-5 ${
         isDarkTheme
           ? "text-white border-b-[#283039]"
           : "text-black border-b-gray-300"
       }`}
     >
-      <div
-        className={`flex items-center gap-4 w-full sm:w-auto px-3`}
-      >
+      <div className={`flex items-center gap-4 w-full sm:w-auto px-3`}>
         <h2 className="text-lg font-bold leading-tight tracking-tight">
           Daksh&#39;s Portfolio
         </h2>
@@ -28,7 +26,7 @@ export function Header({ isDarkTheme, toggleTheme }: HeaderProps) {
         </button>
       </div>
       <div className="hidden sm:flex flex-1 justify-end gap-8">
-        <div className="flex items-center gap-9">
+        <div className="flex items-center gap-5">
           <Link
             className={`${
               isDarkTheme ? "hover:text-gray-300" : "hover:text-gray-700"

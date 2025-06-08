@@ -50,7 +50,7 @@ const Portfolio = () => {
         isDarkTheme ? "bg-[#111418] text-white " : "bg-white text-black"
       } font-['Manrope','Noto_Sans',sans-serif]`}
     >
-      <div className="layout-container flex h-full grow flex-col">
+      <div className="layout-container flex h-full grow items-center flex-col">
         <Header
           isDarkTheme={isDarkTheme}
           toggleTheme={() => setIsDarkTheme(!isDarkTheme)}
