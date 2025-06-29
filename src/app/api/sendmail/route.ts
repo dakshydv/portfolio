@@ -1,11 +1,13 @@
 import { NextRequest, NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 
+const pass = process.env.PASS;
+
 export async function POST(req: NextRequest) {
   const { from, senderEmail, text } = await req.json();
 
   const info = await transporter.sendMail({
-    from: "dakshydv.2411@gmail.com",
+    from: "daksh.ydv2411@gmail.com",
     to: "dakshyadav.dev@gmail.com",
     subject: "Someone wants to connect to you",
     text: `${from} has a message for you, ${text}. Their email id is ${senderEmail}.`,
@@ -33,6 +35,6 @@ const transporter = nodemailer.createTransport({
   secure: true,
   auth: {
     user: "daksh.ydv2411@gmail.com",
-    pass: "twwvqgkjjcvtztne",
+    pass: pass,
   },
 });
