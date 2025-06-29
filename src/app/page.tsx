@@ -43,9 +43,7 @@ export default function Home() {
           </motion.div>
         </div>
         <SubHeading>
-          I&apos;m a software engineer with a passion for building scalable and
-          efficient systems. I&apos;m currently working as a software engineer
-          at Google.
+        I build web applications that actually work well - from the pretty interface all the way down to the database. My playground includes stuff like React with TypeScript, Next.js for those slick fast-loading pages, and Node.js to make the backend magic happen. Need real-time features? I&apos;ve got WebSockets in my toolbox. For data, I juggle between MongoDB&apos;s flexibility and PostgreSQL&apos;s reliability, with Redis keeping everything speedy. And yeah, I make it all look decent with TailwindCSS too.
         </SubHeading>
         <Projects projects={projects.slice(0, 3)} bottomBorder={true} />
         <Experience />

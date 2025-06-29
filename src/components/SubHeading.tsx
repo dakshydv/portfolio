@@ -20,7 +20,7 @@ export const SubHeading = ({
       }}
       viewport={{ once: true }}
     >
-      <Tag className="text-gray-600 dark:text-gray-400 text-sm md:text-base pt-4 px-4 max-w-xl">
+      <Tag className="text-gray-600 dark:text-gray-400 text-sm md:text-base pt-4 px-4">
         {children}
       </Tag>
     </motion.div>
