@@ -1,27 +1,43 @@
 "use client";
 import React, { useState } from "react";
 import { toast } from "sonner";
+import axios from "axios";
 
 export const ContactForm = () => {
+  const [buttonLoading, setButtonLoading] = useState<boolean>(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     message: "",
   });
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log("handle submit clicked");
+    setButtonLoading(true);
 
     const { name, email, message } = formData;
 
     if (!name || !email || !message) {
       toast.error("Please fill all the fields");
+      setButtonLoading(false);
       return;
     }
 
-    // api to submit the form
-    toast.success("Form submitted successfully");
+    try {
+      await axios.post("/api/sendmail", {
+        from: name,
+        senderEmail: email,
+        text: message,
+      });
+
+      toast.success("Form submitted successfully");
+      setFormData({ name: "", email: "", message: "" });
+    } catch (error) {
+      console.log(error);
+      toast.error("Failed to send message. Please try again.");
+    } finally {
+      setButtonLoading(false);
+    }
   };
 
   const handleChange = (
@@ -87,9 +103,17 @@ export const ContactForm = () => {
       </div>
       <button
         type="submit"
-        className="rounded-md bg-primary px-4 py-2 text-white hover:cursor-pointer"
+        disabled={buttonLoading}
+        className="rounded-md bg-primary px-4 py-2 text-white hover:cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
       >
-        Send Message
+        {buttonLoading ? (
+          <>
+            <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+            Sending...
+          </>
+        ) : (
+          "Send Message"
+        )}
       </button>
     </form>
   );

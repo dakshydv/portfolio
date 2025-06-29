@@ -20,6 +20,19 @@ export const Navbar = () => {
       title: "Contact",
       href: "/contact",
     },
+    // {
+    //   title: <IconBrandGithub />,
+    //   href: "/contact",
+    // },
+    // {
+    //   title: <IconBrandTwitter /> ,
+    //   href: "/contact",
+    // },
+    // {
+    //   title: <IconBrandLinkedin />,
+    //   icon: <IconBrandLinkedin />,
+    //   href: "/contact",
+    // },
   ];
 
   const [hovered, setHovered] = useState<number | null>(null);

@@ -1,10 +1,10 @@
 import Link from "next/link";
 import {
   IconBrandX,
-  IconBrandLinkedin,
   IconBrandGithub,
 } from "@tabler/icons-react";
 import { Container } from "./Container";
+import { Linkedin, Mail } from "lucide-react";
 
 export const Footer = () => {
   return (
@@ -16,8 +16,11 @@ export const Footer = () => {
         <Link href={"https://x.com/dakshydv_"} target="_blank">
           <IconBrandX className="size-4 text-neutral-500 dark:text-neutral-400 hover:text-neutral-700 dark:hover:text-neutral-300" />
         </Link>
+        <Link href={"mailto:dakshyadav.dev@gmail.com"} target="_blank">
+          <Mail className="size-4 text-neutral-500 dark:text-neutral-400 hover:text-neutral-700 dark:hover:text-neutral-300" />
+        </Link>
         <Link href={"https://www.linkedin.com/in/daksh-dev/"} target="_blank">
-          <IconBrandLinkedin className="size-4 text-neutral-500 dark:text-neutral-400 hover:text-neutral-700 dark:hover:text-neutral-300" />
+          <Linkedin className="size-4 text-neutral-500 dark:text-neutral-400 hover:text-neutral-700 dark:hover:text-neutral-300" />
         </Link>
         <Link href={"https://github.com/dakshydv"} target="_blank">
           <IconBrandGithub className="size-4 text-neutral-500 dark:text-neutral-400 hover:text-neutral-700 dark:hover:text-neutral-300" />
