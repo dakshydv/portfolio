@@ -2,12 +2,7 @@
 import Link from "next/link";
 import { Container } from "./Container";
 import Image from "next/image";
-import {
-  motion,
-  useMotionValueEvent,
-  useScroll,
-  useTransform,
-} from "motion/react";
+import { motion, useMotionValueEvent, useScroll } from "motion/react";
 import { useState } from "react";
 import { ThemeToggle } from "./ThemeToggle";
 
@@ -30,24 +25,13 @@ export const Navbar = () => {
   const [hovered, setHovered] = useState<number | null>(null);
   const { scrollY } = useScroll();
 
-  const [scrolled, setScrolled] = useState<boolean>(false);
-
-  const y = useTransform(scrollY, [0, 100], [0, 10]);
-  const width = useTransform(scrollY, [0, 100], ["100%", "40%"]);
-
-  useMotionValueEvent(scrollY, "change", (latest) => {
-    if (latest > 20) {
-      setScrolled(true);
-    } else {
-      setScrolled(false);
-    }
+  useMotionValueEvent(scrollY, "change", () => {
+    // Handle scroll events if needed in the future
   });
 
   return (
     <Container>
-      <motion.nav
-        className="flex fixed top-0 inset-x-0 w-full max-w-4xl bg-white dark:bg-[#171717] z-70 mx-auto rounded-full items-center justify-between py-2 px-3"
-      >
+      <motion.nav className="flex fixed top-0 inset-x-0 w-full max-w-4xl bg-white dark:bg-[#171717] z-70 mx-auto rounded-full items-center justify-between py-2 px-3">
         <Link href={"/"}>
           <Image
             src={"/daksh.png"}

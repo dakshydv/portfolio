@@ -1,13 +1,7 @@
 "use client";
 import { motion } from "motion/react";
 
-export const SectionHeading = ({
-  children,
-  delay = 0,
-}: {
-  children: string;
-  delay: number;
-}) => {
+export const SectionHeading = ({ children }: { children: string }) => {
   return (
     <h2 className="font-normal text-sm md:text-base pb-2 pt-10 max-w-xl">
       {children.split(" ").map((word, idx) => (

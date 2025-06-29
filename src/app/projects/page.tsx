@@ -12,10 +12,10 @@ export default function ProjectsPage() {
       <Container className="min-h-screen pt-15 md:pt-20 md:pb-4">
         <Heading>Projects</Heading>
         <SubHeading>
-          I'm a passionate software engineer dedicated to crafting elegant
+          I&apos;m a passionate software engineer dedicated to crafting elegant
           solutions for complex problems. With expertise in full-stack
           development, I enjoy building user-centric applications that make a
-          difference. When I'm not coding, you can find me exploring new
+          difference. When I&apos;m not coding, you can find me exploring new
           technologies, contributing to open-source projects, or sharing my
           knowledge through technical writing.
         </SubHeading>

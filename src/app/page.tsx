@@ -14,9 +14,9 @@ export default function Home() {
       <Container className="min-h-screen md:pt-20 pt-15 relative">
         <Heading>Daksh Yadav</Heading>
         <SubHeading>
-          I'm a software engineer with a passion for building scalable and
-          efficient systems. I'm currently working as a software engineer at
-          Google.
+          I&apos;m a software engineer with a passion for building scalable and
+          efficient systems. I&apos;m currently working as a software engineer
+          at Google.
         </SubHeading>
         <Projects projects={projects.slice(0, 3)} bottomBorder={true} />
         <Experience />
