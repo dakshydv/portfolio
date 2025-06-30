@@ -38,7 +38,7 @@ export default function RootLayout({
               <Navbar />
             </div>
 
-            <div className="col-start-1 md:col-start-3 bg-white md:border-x border-gray-300 dark:border-gray-700 row-start-2">
+            <div className="col-start-1 md:col-start-3 bg-[#ececec] md:border-x border-gray-300 dark:border-gray-700 row-start-2">
               <Container>{children}</Container>
             </div>
 

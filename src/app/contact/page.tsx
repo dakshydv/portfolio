@@ -11,7 +11,7 @@ export default function Contact() {
       <Container className="min-h-screen w-4xl p-4 pt-15 md:pt-20 md:pb-10">
         <Heading>Contact Me</Heading>
         <SubHeading>
-          I am open to freelance offers. Reach out to me to enquire more about
+          I am open to freelance and full-time offers. Reach out to me to enquire more about
           my work.
         </SubHeading>
         <ContactForm />

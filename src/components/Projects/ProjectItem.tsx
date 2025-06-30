@@ -53,14 +53,14 @@ export const ProjectItem = ({
           {webUrl && (
             <ProjectButtons
               icon={<IconWorld size={13} />}
-              link="xyz"
+              link={webUrl}
               placeholder="Website"
             />
           )}
           {gitUrl && (
             <ProjectButtons
               icon={<IconBrandGithub size={13} />}
-              link="xyz"
+              link={gitUrl}
               placeholder="Source"
             />
           )}

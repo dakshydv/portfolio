@@ -21,7 +21,7 @@ export function cn(...classes: (string | undefined | null | false)[]): string {
 
 export const projects: ProjectTypes[] = [
   {
-    title: "UpStack",
+    title: "UpStack (Coming Soon)",
     timeline: "March 2024 - April 2025",
     src: "/upstack.png",
     gitUrl: "https://github.com/dakshydv/UpStack.git",

@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { Container } from "@/components/Container";
 import { Projects } from "@/components/Projects/Projects";
 import { Heading } from "@/components/Heading";
@@ -19,31 +19,42 @@ export default function Home() {
       <Container className="min-h-screen md:pt-20 pt-15 relative">
         <div className="flex items-center gap-5">
           <Heading>Daksh Yadav</Heading>
-          <motion.div 
-          initial={{ opacity: 0, filter: "blur(10px)", y: 10 }}
-          whileInView={{ opacity: 1, filter: "blur(0px)", y: 0 }}
-          transition={{
-            duration: 0.3,
-            ease: "easeInOut",
-          }}
-          viewport={{ once: true }}
-          className="flex text-white gap-3 font-medium">
-            <Link href={"https://x.com/dakshydv_"}>
+          <motion.div
+            initial={{ opacity: 0, filter: "blur(10px)", y: 10 }}
+            whileInView={{ opacity: 1, filter: "blur(0px)", y: 0 }}
+            transition={{
+              duration: 0.3,
+              ease: "easeInOut",
+            }}
+            viewport={{ once: true }}
+            className="flex dark:text-white text-gray-600 gap-3 font-medium"
+          >
+            <Link target="_blank" href={"https://x.com/dakshydv_"}>
               <IconBrandX strokeWidth={1} />
             </Link>
-            <Link href={"https://github.com/dakshydv"}>
+            <Link target="_blank" href={"https://github.com/dakshydv"}>
               <IconBrandGithub strokeWidth={1} />
             </Link>
-            <Link href={"mailto:dakshyadav.dev@gmail.com"}>
+            <Link target="_blank" href={"mailto:dakshyadav.dev@gmail.com"}>
               <Mail strokeWidth={1} />
             </Link>
-            <Link href={"https://www.linkedin.com/in/daksh-dev/"}>
+            <Link
+              target="_blank"
+              href={"https://www.linkedin.com/in/daksh-dev/"}
+            >
               <Linkedin strokeWidth={1} />
             </Link>
           </motion.div>
         </div>
         <SubHeading>
-        I build web applications that actually work well - from the pretty interface all the way down to the database. My playground includes stuff like React with TypeScript, Next.js for those slick fast-loading pages, and Node.js to make the backend magic happen. Need real-time features? I&apos;ve got WebSockets in my toolbox. For data, I juggle between MongoDB&apos;s flexibility and PostgreSQL&apos;s reliability, with Redis keeping everything speedy. And yeah, I make it all look decent with TailwindCSS too.
+          I build web applications that actually work well - from the pretty
+          interface all the way down to the database. My playground includes
+          stuff like React with TypeScript, Next.js for those slick fast-loading
+          pages, and Node.js to make the backend magic happen. Need real-time
+          features? I&apos;ve got WebSockets in my toolbox. For data, I juggle
+          between MongoDB&apos;s flexibility and PostgreSQL&apos;s reliability,
+          with Redis keeping everything speedy. And yeah, I make it all look
+          decent with TailwindCSS too.
         </SubHeading>
         <Projects projects={projects.slice(0, 3)} bottomBorder={true} />
         <Experience />
