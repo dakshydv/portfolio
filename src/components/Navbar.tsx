@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { Container } from "./Container";
 import Image from "next/image";
-import { motion, useMotionValueEvent, useScroll } from "motion/react";
+import { motion } from "motion/react";
 import { useState } from "react";
 import { ThemeToggle } from "./ThemeToggle";
 
@@ -20,31 +20,13 @@ export const Navbar = () => {
       title: "Contact",
       href: "/contact",
     },
-    // {
-    //   title: <IconBrandGithub />,
-    //   href: "/contact",
-    // },
-    // {
-    //   title: <IconBrandTwitter /> ,
-    //   href: "/contact",
-    // },
-    // {
-    //   title: <IconBrandLinkedin />,
-    //   icon: <IconBrandLinkedin />,
-    //   href: "/contact",
-    // },
   ];
 
   const [hovered, setHovered] = useState<number | null>(null);
-  const { scrollY } = useScroll();
-
-  useMotionValueEvent(scrollY, "change", () => {
-    // Handle scroll events if needed in the future
-  });
 
   return (
     <Container>
-      <motion.nav className="flex fixed top-0 inset-x-0 w-full max-w-4xl bg-white dark:bg-[#171717] z-70 mx-auto rounded-full items-center justify-between py-2 px-3">
+      <motion.nav className="flex fixed top-0 inset-x-0 w-full max-w-4xl bg-white/80 dark:bg-[#171717]/80 backdrop-blur-sm z-70 mx-auto rounded-full items-center justify-between py-2 px-3">
         <Link href={"/"}>
           <Image
             src={"/daksh.png"}

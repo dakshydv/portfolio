@@ -56,16 +56,16 @@ export const projects: ProjectTypes[] = [
 
 export const Experiences:ExperienceTypes[]  = [
   {
-    company: "Midnight Customs",
-    timeline: "April 2024 - May 2025",
-    role: "Full Stack Developer",
-    desc: "Designed and developed a responsive customs garage website with dynamic booking forms and integrated email services (SMTP/API) for automated appointment confirmations. Built an intuitive UI/UX for seamless customer interaction while ensuring cross-browser compatibility and mobile optimization. Collaborated with stakeholders to deliver a fully functional site, improving engagement and operational efficiency."
-  },
-  {
     company: "Freelancer",
     timeline: "December 2024 - Present",
     role: "Full Stack Developer",
     desc: "Designed and developed custom websites for clients, including a fully functional customs garage site with booking forms, automated email services, and responsive UI/UX. Collaborated directly with clients to gather requirements, implement solutions, and ensure timely project delivery. Specialized in front-end development, performance optimization, and seamless third-party integrations to enhance user experience and business efficiency."
+  },
+  {
+    company: "Midnight Customs",
+    timeline: "March 2025 - May 2025",
+    role: "Full Stack Developer",
+    desc: "Designed and developed a responsive customs garage website with dynamic booking forms and integrated email services (SMTP/API) for automated appointment confirmations. Built an intuitive UI/UX for seamless customer interaction while ensuring cross-browser compatibility and mobile optimization. Collaborated with stakeholders to deliver a fully functional site, improving engagement and operational efficiency."
   },
   {
     company: "Coding Club, BITS Pilani",

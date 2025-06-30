@@ -97,7 +97,7 @@ export const ContactForm = () => {
           id="message"
           name="message"
           onChange={handleChange}
-          placeholder="You are crazy good, never change."
+          placeholder="Let&apos;s talk about your work."
           className="resize-none shadow-input px-2 py-1 rounded-md text-sm focus:outline-none focus:ring-2 dark:text-neutral-200 placeholder:text-neutral-500 dark:placeholder:text-neutral-400 border border-neutral-300 dark:border-neutral-700"
         />
       </div>
