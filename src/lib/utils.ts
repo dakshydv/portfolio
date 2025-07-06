@@ -23,9 +23,9 @@ export const projects: ProjectTypes[] = [
   {
     title: "UpStack (Coming Soon)",
     timeline: "March 2024 - April 2025",
-    src: "/upstack.png",
+    src: "/upstack2.png",
     gitUrl: "https://github.com/dakshydv/UpStack.git",
-    skills: ["nextjs", "reactjs", "tailwindcss", "expressjs", "nodemailer", "redis"],
+    skills: ["turborepo", "nextjs", "reactjs", "tailwindcss", "expressjs", "nodemailer", "redis streams"],
     desc: "Stop guessing if your APIs are down. Upstack quietly watches your endpoints and alerts you before users notice failures. Get cron-like monitoring without the cron headaches.",
   },
   {
@@ -71,7 +71,7 @@ export const Experiences:ExperienceTypes[]  = [
     desc: "Designed and developed custom websites for clients, including a fully functional customs garage site with booking forms, automated email services, and responsive UI/UX. Collaborated directly with clients to gather requirements, implement solutions, and ensure timely project delivery. Specialized in front-end development, performance optimization, and seamless third-party integrations to enhance user experience and business efficiency."
   },
   {
-    company: "Midnight Customs",
+    company: "Midnight Customs, Bolton, Canada (Remote)",
     timeline: "March 2025 - May 2025",
     role: "Full Stack Developer",
     desc: "Designed and developed a responsive customs garage website with dynamic booking forms and integrated email services (SMTP/API) for automated appointment confirmations. Built an intuitive UI/UX for seamless customer interaction while ensuring cross-browser compatibility and mobile optimization. Collaborated with stakeholders to deliver a fully functional site, improving engagement and operational efficiency."
