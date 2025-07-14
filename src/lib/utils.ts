@@ -25,6 +25,7 @@ export const projects: ProjectTypes[] = [
     timeline: "March 2024 - April 2025",
     src: "/upstack2.png",
     gitUrl: "https://github.com/dakshydv/UpStack.git",
+    webUrl: "https://up-stack.vercel.app/",
     skills: ["turborepo", "nextjs", "reactjs", "tailwindcss", "expressjs", "nodemailer", "redis streams"],
     desc: "Stop guessing if your APIs are down. Upstack quietly watches your endpoints and alerts you before users notice failures. Get cron-like monitoring without the cron headaches.",
   },
