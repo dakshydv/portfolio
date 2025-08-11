@@ -54,7 +54,7 @@ export const ProjectItem = ({
             <ProjectButtons
               icon={<IconWorld size={13} />}
               link={webUrl}
-              placeholder="Website"
+              placeholder="Live Link"
             />
           )}
           {gitUrl && (

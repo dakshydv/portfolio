@@ -25,7 +25,7 @@ export const projects: ProjectTypes[] = [
     timeline: "July 2025 - Present",
     src: "/infinidraw.png",
     gitUrl: "https://github.com/dakshydv/infinidraw.git",
-    webUrl: "https://infinidraw-mocha.vercel.app/canvas/1/1",
+    webUrl: "https://infinidraw-mocha.vercel.app",
     skills: [
       "nextjs",
       "reactjs",
