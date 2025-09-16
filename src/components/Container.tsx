@@ -11,7 +11,7 @@ export const Container = ({
   return (
     <div
       className={cn(
-        "max-w-4xl relative bg-white md:pt-0 dark:bg-[#171717]",
+        "max-w-4xl md:w-4xl w-full mx-auto relative bg-white md:pt-0 dark:bg-[#171717]",
         className
       )}
     >

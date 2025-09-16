@@ -12,7 +12,7 @@ export interface ExperienceTypes {
   company: string;
   timeline: string;
   role: string;
-  desc: string;
+  desc: string[];
 }
 
 export function cn(...classes: (string | undefined | null | false)[]): string {
@@ -97,18 +97,18 @@ export const Experiences: ExperienceTypes[] = [
     company: "Freelancer",
     timeline: "December 2024 - Present",
     role: "Full Stack Developer",
-    desc: "Designed and developed custom websites for clients, including a fully functional customs garage site with booking forms, automated email services, and responsive UI/UX. Collaborated directly with clients to gather requirements, implement solutions, and ensure timely project delivery. Specialized in front-end development, performance optimization, and seamless third-party integrations to enhance user experience and business efficiency.",
+    desc: ["Designed, developed, and deployed responsive full stack web applications using React, Node.js, Express, and MongoDB.", "Built and optimized RESTful APIs, integrated third-party services, and implemented secure authentication systems.", "Collaborated with clients to gather requirements and deliver scalable, high-performance solutions on time.", "Deployed and maintained applications on cloud platforms with CI/CD pipelines for seamless updates."],
   },
   {
     company: "Midnight Customs, Bolton, Canada (Remote)",
     timeline: "March 2025 - May 2025",
     role: "Full Stack Developer",
-    desc: "Designed and developed a responsive customs garage website with dynamic booking forms and integrated email services (SMTP/API) for automated appointment confirmations. Built an intuitive UI/UX for seamless customer interaction while ensuring cross-browser compatibility and mobile optimization. Collaborated with stakeholders to deliver a fully functional site, improving engagement and operational efficiency.",
+    desc: ["Designed and developed a responsive website for Midnight Customs with dynamic booking forms and automated email confirmations.", "Built an intuitive, mobile-optimized UI/UX ensuring seamless customer interaction and cross-browser compatibility.", "Collaborated remotely with stakeholders to gather requirements and deliver a fully functional, deployed site on time.", "Improved customer engagement and streamlined appointment handling through integrated digital workflows."],
   },
   {
     company: "Coding Club, BITS Pilani",
     timeline: "August 2024 - Present",
     role: "Member",
-    desc: "Actively contributed to the college coding club by participating in hackathons, workshops, and collaborative projects to enhance technical skills in web development and problem-solving. Engaged in peer programming, code reviews, and knowledge-sharing sessions to foster a learning-driven community. Assisted in organizing tech events and coding competitions, gaining exposure to emerging technologies and teamwork in software development.",
+    desc: ["Actively contributed to the college coding club through hackathons, workshops, and collaborative web development projects.", "Participated in peer programming, code reviews, and knowledge-sharing sessions to strengthen problem-solving and technical skills.", "Assisted in organizing tech events and coding competitions, fostering a learning-driven community and gaining exposure to emerging technologies."],
   },
 ];

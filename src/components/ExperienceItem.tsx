@@ -29,9 +29,13 @@ export const ExperienceItem = ({
       <h3 className="font-medium text-neutral-800 dark:text-neutral-200 mt-1 tracking-tight text-md">
         {role}
       </h3>
-      <p className="tracking-tight mt-1 font-light text-gray-700 dark:text-gray-300">
-        {desc}
-      </p>
+     {desc && Array.isArray(desc) && (
+        <ul className="list-disc text-gray-900 dark:text-gray-400 list-inside mt-2 space-y-1">
+          {desc.map((item: string, idx: number) => (
+            <li key={idx}>{item}</li>
+          ))}
+        </ul>
+      )} 
     </motion.div>
   );
 };
