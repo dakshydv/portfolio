@@ -6,7 +6,7 @@ import { SubHeading } from "@/components/SubHeading";
 import { projects } from "@/lib/utils";
 import { Experience } from "@/components/Experience";
 import { ContactLanding } from "@/components/ContactLanding";
-import { IconBrandGithub, IconBrandX } from "@tabler/icons-react";
+import { IconBrandGithub, IconBrandX, IconFileCv } from "@tabler/icons-react";
 import { Linkedin, Mail } from "lucide-react";
 import { motion } from "motion/react";
 import Link from "next/link";
@@ -43,6 +43,12 @@ export default function Home() {
               href={"https://www.linkedin.com/in/daksh-dev/"}
             >
               <Linkedin strokeWidth={1} />
+            </Link>
+            <Link
+              target="_blank"
+              href={"/resume.pdf"}
+            >
+              <IconFileCv strokeWidth={1} />
             </Link>
           </motion.div>
         </div>
