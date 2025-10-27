@@ -21,16 +21,17 @@ export function cn(...classes: (string | undefined | null | false)[]): string {
 
 export const projects: ProjectTypes[] = [
   {
-    title: "Infinidraw (In Progress)",
+    title: "Sketchly",
     timeline: "July 2025 - Present",
     src: "/infinidraw.png",
-    gitUrl: "https://github.com/dakshydv/infinidraw.git",
-    webUrl: "https://infinidraw-mocha.vercel.app",
+    gitUrl: "https://github.com/dakshydv/sketchly-nextjs.git",
+    webUrl: "https://sketchly.pro",
     skills: [
       "nextjs",
       "reactjs",
       "tailwindcss",
-      "websockets"
+      "websockets",
+      "postgreSQL"
     ],
     desc: "A minimalist, collaborative whiteboard tool built with React and TypeScript, featuring real-time drawing, shapes, and text. Supports exporting sketches and offline functionality. Designed for simplicity and ease of use, inspired by Excalidraw.",
   },
