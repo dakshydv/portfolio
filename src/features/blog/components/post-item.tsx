@@ -2,7 +2,6 @@ import dayjs from "dayjs";
 import { PinIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
 
 import type { Post } from "@/features/blog/types/post";
 import { cn } from "@/lib/utils";
@@ -28,6 +27,7 @@ export function PostItem({
           <Image
             src={post.metadata.image}
             alt={post.metadata.title}
+            className="w-full rounded-xl object-cover"
             width={1200}
             height={630}
             quality={100}

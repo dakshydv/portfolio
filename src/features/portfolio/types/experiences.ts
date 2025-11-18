@@ -9,7 +9,7 @@ export type ExperiencePosition = {
    * Employment period of the position.
    * Use "MM.YYYY" or "YYYY" format. Omit `end` for current roles.
    */
-  employmentPeriod: {
+  employmentPeriod?: {
     /** Start date (e.g., "10.2022" or "2020"). */
     start: string;
     /** End date; leave undefined for "Present". */
@@ -27,11 +27,11 @@ export type ExperiencePosition = {
 
 export type Experience = {
   id: string;
-  companyName: string;
+  companyName?: string;
   /** URL to the company logo (absolute URL or path under /public). */
   companyLogo?: string;
   /** Roles held at this company; keep newest first for display. */
-  positions: ExperiencePosition[];
+  positions?: ExperiencePosition[];
   /** Marks the company as the current employer for highlighting. */
   isCurrentEmployer?: boolean;
 };

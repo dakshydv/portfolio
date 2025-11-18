@@ -1,34 +1,34 @@
 import type { User } from "@/features/portfolio/types/user";
 
 export const USER: User = {
-  firstName: "Chánh Đại",
-  lastName: "Nguyễn",
-  displayName: "Chánh Đại",
-  username: "ncdai",
+  firstName: "Daksh",
+  lastName: "Yadav",
+  displayName: "Daksh Yadav",
+  username: "dakshydv_",
   gender: "male",
   pronouns: "he/him",
   bio: "Creating with code. Small details matter.",
   flipSentences: [
     "Creating with code. Small details matter.",
-    "Design Engineer",
+    "Full Stack Engineer",
     "Open Source Contributor",
   ],
-  address: "Ho Chi Minh City, Viet Nam",
-  phoneNumber: "Kzg0Nzc3ODg4MTQ4", // E.164 format, base64 encoded (https://t.io.vn/base64-string-converter)
-  email: "ZGFpQGNoYW5oZGFpLmNvbQ==", // base64 encoded
-  website: "https://chanhdai.com",
-  jobTitle: "Design Engineer",
+  address: "Gurugram, India",
+  phoneNumber: "KzkxODgwMDU5MTE5NQ==", // E.164 format, base64 encoded (https://t.io.vn/base64-string-converter)
+  email: "ZGFrc2h5YWRhdi5kZXZAZ21haWwuY29t", // base64 encoded
+  website: "https://dakshyadav.com",
+  jobTitle: "Full Stack Developer",
   jobs: [
     {
-      title: "Senior Frontend Developer & UI Design Lead",
-      company: "Simplamo",
-      website: "https://simplamo.com?ref=IN-926722",
+      title: "Building",
+      company: "Sketchly",
+      website: "https://www.sketchly.pro",
     },
-    {
-      title: "Founder",
-      company: "Quaric",
-      website: "https://quaric.com",
-    },
+    // {
+    //   title: "Founder",
+    //   company: "Quaric",
+    //   website: "https://quaric.com",
+    // },
   ],
   //   about: `
   // Hello, World! I am Chánh Đại — a Design Engineer passionate about creating high-performance, user-centric software solutions with intuitive and engaging designs.
@@ -42,23 +42,17 @@ export const USER: User = {
   // Let's connect and collaborate!
   //   `,
   about: `
-- **Design Engineer** with **5+ years of experience**, known for pixel-perfect execution and strong attention to small details.
-- Skilled in **Next.js**, **React**, **TypeScript**, and modern front-end technologies; building high-quality, user-centric web and mobile applications.
+- I build Web Applications that actually work
+- Skilled in **Next.js**, **React**, **TypeScript**, **Golang**, **tRPC**, and modern full-stack technologies, building production-ready solutions for difference domains.
 - Passionate about exploring new technologies and turning ideas into reality through polished, thoughtfully crafted personal projects.
-- Creator of [ZaDark](https://zadark.com) (2022): enhances the Zalo experience on PC & Web
-  - **80k+ downloads** on [SourceForge](https://sourceforge.net/projects/zadark)
-  - **20k+ active users** on the [Chrome Web Store](https://chromewebstore.google.com/detail/llfhpkkeljlgnjgkholeppfnepmjppob)
-- Creator of [React Wheel Picker](https://react-wheel-picker.chanhdai.com): iOS-like wheel picker with inertia scrolling & infinite loop
-  - **4k+ weekly downloads** on [npm](https://www.npmjs.com/package/@ncdai/react-wheel-picker)
-  - [▲Vercel OSS Program](https://vercel.com/blog/summer-2025-oss-program#react-wheel-picker) summer 2025 cohort
 `,
   avatar: "https://assets.chanhdai.com/images/chanhdai-avatar-ghibli.webp",
   ogImage:
     "https://assets.chanhdai.com/images/screenshot-og-image-light.png?t=1763205174",
   namePronunciationUrl: "/audio/chanhdai.mp3",
-  timeZone: "Asia/Ho_Chi_Minh",
+  timeZone: "Asia/Kolkata",
   keywords: [
-    "ncdai",
+    "dakshydv",
     "nguyenchanhdai",
     "nguyen chanh dai",
     "chanhdai",

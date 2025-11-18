@@ -1,7 +1,6 @@
 import { USER } from "@/features/portfolio/data/user";
 import { FlipSentences } from "@/registry/flip-sentences";
 
-import { PronounceMyName } from "./pronounce-my-name";
 import { VerifiedIcon } from "./verified-icon";
 
 export function ProfileHeader() {
@@ -10,20 +9,21 @@ export function ProfileHeader() {
       <div className="shrink-0 border-r border-edge">
         <div className="mx-0.5 my-[3px]">
           <img
-            className="size-32 rounded-full ring-1 ring-border ring-offset-2 ring-offset-background select-none sm:size-40"
+            className="size-32 rounded-full object-cover ring-1 ring-border ring-offset-2 ring-offset-background select-none sm:size-40"
             alt={`${USER.displayName}'s avatar`}
-            src={USER.avatar}
+            // src={USER.avatar}
+            src={"/images/profile.jpeg"}
             fetchPriority="high"
           />
         </div>
 
-        <a
+        {/* Flag of Viet Nam */}
+        {/* <a
           href="https://vietnam.gov.vn/about-viet-nam"
           target="_blank"
           rel="noreferrer"
           className="absolute top-0 -left-px"
         >
-          {/* Flag of Viet Nam */}
           <svg
             className="h-8 sm:h-9"
             viewBox="0 0 30 20"
@@ -36,7 +36,7 @@ export function ProfileHeader() {
               fill="#FFEB00"
             />
           </svg>
-        </a>
+        </a> */}
       </div>
 
       <div className="flex flex-1 flex-col">
@@ -57,7 +57,7 @@ export function ProfileHeader() {
               className="size-[0.6em] translate-y-px text-info select-none"
               aria-label="Verified"
             />
-            {USER.namePronunciationUrl && (
+            {/* {USER.namePronunciationUrl && (
               <>
                 &nbsp;
                 <PronounceMyName
@@ -65,7 +65,7 @@ export function ProfileHeader() {
                   namePronunciationUrl={USER.namePronunciationUrl}
                 />
               </>
-            )}
+            )} */}
           </h1>
 
           <div className="h-12 border-t border-edge py-1 pl-4 sm:h-auto">

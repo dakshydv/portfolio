@@ -1,4 +1,4 @@
-import { GlobeIcon, MapPinIcon, MarsIcon, VenusIcon } from "lucide-react";
+import { GlobeIcon, MapPinIcon } from "lucide-react";
 
 import { USER } from "@/features/portfolio/data/user";
 import { urlToName } from "@/utils/url";
@@ -62,14 +62,14 @@ export function Overview() {
             </IntroItemContent>
           </IntroItem>
 
-          <IntroItem>
+          {/* <IntroItem>
             <IntroItemIcon>
               {USER.gender === "male" ? <MarsIcon /> : <VenusIcon />}
             </IntroItemIcon>
             <IntroItemContent aria-label={`Pronouns: ${USER.pronouns}`}>
               {USER.pronouns}
             </IntroItemContent>
-          </IntroItem>
+          </IntroItem> */}
         </div>
       </PanelContent>
 

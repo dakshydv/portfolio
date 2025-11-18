@@ -1,5 +1,4 @@
 import Image from "next/image";
-import React from "react";
 
 import { SimpleTooltip } from "@/components/ui/tooltip";
 import { cn } from "@/lib/utils";
@@ -35,31 +34,41 @@ export function TeckStack() {
                     {tech.theme ? (
                       <>
                         <Image
-                          src={`https://assets.chanhdai.com/images/tech-stack-icons/${tech.key}-light.svg`}
+                          src={`icons/${tech.darkIcon}`}
                           alt={`${tech.title} light icon`}
                           width={32}
                           height={32}
-                          className="hidden [html.light_&]:block"
+                          className="block dark:hidden"
                           unoptimized
                         />
                         <Image
-                          src={`https://assets.chanhdai.com/images/tech-stack-icons/${tech.key}-dark.svg`}
+                          // src={`https://assets.chanhdai.com/images/tech-stack-icons/${tech.key}-dark.svg`}
+                          src={`icons/${tech.icon}`}
                           alt={`${tech.title} dark icon`}
                           width={32}
                           height={32}
-                          className="hidden [html.dark_&]:block"
+                          className="hidden dark:block"
                           unoptimized
                         />
                       </>
                     ) : (
                       <Image
-                        src={`https://assets.chanhdai.com/images/tech-stack-icons/${tech.key}.svg`}
+                        // src={`https://assets.chanhdai.com/images/tech-stack-icons/python.svg`}
+                        src={`/icons/${tech.icon}`}
                         alt={`${tech.title} icon`}
                         width={32}
                         height={32}
                         unoptimized
                       />
                     )}
+                    {/* <Image
+                      // src={`https://assets.chanhdai.com/images/tech-stack-icons/${tech.key}.svg`}
+                      src={`/icons/${tech.icon}`}
+                      alt={`${tech.title} icon`}
+                      width={32}
+                      height={32}
+                      unoptimized
+                    /> */}
                     <span className="sr-only">{tech.title}</span>
                   </a>
                 </SimpleTooltip>

@@ -38,8 +38,8 @@ export function ThemeToggle() {
       //   document.startViewTransition(switchTheme);
       // }}
     >
-      <MoonIcon className="relative hidden after:absolute after:-inset-2 [html.dark_&]:block" />
-      <SunMediumIcon className="relative hidden after:absolute after:-inset-2 [html.light_&]:block" />
+      <MoonIcon className="relative hidden after:absolute after:-inset-2 dark:block" />
+      <SunMediumIcon className="relative block after:absolute after:-inset-2 dark:hidden" />
       <span className="sr-only">Theme Toggle</span>
     </Button>
   );

@@ -10,7 +10,7 @@ export function SocialLinkItem({ icon, title, description, href }: SocialLink) {
       className={cn(
         "group/link flex cursor-pointer items-center gap-4 p-4 pr-2 transition-colors select-none hover:bg-accent2",
         "max-sm:screen-line-before max-sm:screen-line-after",
-        "sm:nth-[2n+1]:screen-line-before sm:nth-[2n+1]:screen-line-after"
+        "sm:nth-[2n+1]:screen-lingge-before sm:nth-[2n+1]:screen-line-after"
       )}
       href={href}
       target="_blank"
@@ -19,11 +19,12 @@ export function SocialLinkItem({ icon, title, description, href }: SocialLink) {
       <div className="relative size-12 shrink-0">
         <Image
           className="rounded-xl"
-          src={icon}
+          src={`/icons/${icon}`}
+          // src={"/icons/x.webp"}
           alt={title}
           width={48}
           height={48}
-          quality={100}
+          // quality={100}
           unoptimized
         />
         <div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-black/10 ring-inset dark:ring-white/10" />

@@ -1,5 +1,4 @@
 import { InfinityIcon } from "lucide-react";
-import React from "react";
 
 import { Markdown } from "@/components/markdown";
 import {
@@ -21,8 +20,81 @@ export function ExperiencePositionItem({
 }: {
   position: ExperiencePosition;
 }) {
-  const { start, end } = position.employmentPeriod;
+  const start = position.employmentPeriod?.start ?? "";
+  const end = position.employmentPeriod?.end;
   const isOngoing = !end;
+
+  const hasDetails = Boolean(
+    (position.description && position.description.trim().length > 0) ||
+      (Array.isArray(position.skills) && position.skills.length > 0)
+  );
+
+  if (!hasDetails) {
+    return (
+      <div className="relative last:before:absolute last:before:h-full last:before:w-4 last:before:bg-background">
+        <div className={cn("block w-full text-left select-none")}>
+          <div className="relative z-1 mb-1 flex items-center gap-3">
+            <div
+              className={cn(
+                "flex size-6 shrink-0 items-center justify-center rounded-lg",
+                "bg-muted text-muted-foreground",
+                "border border-muted-foreground/15 ring-1 ring-edge ring-offset-1 ring-offset-background"
+              )}
+              aria-hidden
+            >
+              <ExperienceIcon className="size-4" icon={position.icon} />
+            </div>
+
+            <h4 className="flex-1 font-medium text-balance">
+              {position.title}
+            </h4>
+
+            <div
+              className="shrink-0 text-muted-foreground [&_svg]:size-4"
+              aria-hidden
+            >
+              <span className="sr-only">No additional details</span>
+            </div>
+          </div>
+
+          <div className="flex items-center gap-2 pl-9 text-sm text-muted-foreground">
+            {position.employmentType && (
+              <>
+                <dl>
+                  <dt className="sr-only">Employment Type</dt>
+                  <dd>{position.employmentType}</dd>
+                </dl>
+
+                <Separator
+                  className="data-[orientation=vertical]:h-4"
+                  orientation="vertical"
+                />
+              </>
+            )}
+
+            <dl>
+              <dt className="sr-only">Employment Period</dt>
+              <dd className="flex items-center gap-0.5">
+                <span>{start}</span>
+                <span className="font-mono">—</span>
+                {isOngoing ? (
+                  <>
+                    <InfinityIcon
+                      className="size-4.5 translate-y-[0.5px]"
+                      aria-hidden
+                    />
+                    <span className="sr-only">Present</span>
+                  </>
+                ) : (
+                  <span>{end}</span>
+                )}
+              </dd>
+            </dl>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <CollapsibleWithContext defaultOpen={position.isExpanded} asChild>
