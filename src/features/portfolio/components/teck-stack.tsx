@@ -26,7 +26,7 @@ export function TeckStack() {
               <li key={tech.key} className="flex">
                 <SimpleTooltip content={tech.title}>
                   <a
-                    href={tech.href}
+                    // href={tech.href}
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={tech.title}

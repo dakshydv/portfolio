@@ -1,5 +1,4 @@
 import Image from "next/image";
-import React from "react";
 
 import type { Experience } from "../../types/experiences";
 import { ExperiencePositionItem } from "./experience-position-item";
@@ -12,7 +11,7 @@ export function ExperienceItem({ experience }: { experience: Experience }) {
           {experience.companyLogo ? (
             <Image
               src={experience.companyLogo}
-              alt={experience.companyName}
+              alt={experience.companyName ?? ""}
               width={24}
               height={24}
               quality={100}
@@ -39,7 +38,7 @@ export function ExperienceItem({ experience }: { experience: Experience }) {
       </div>
 
       <div className="relative space-y-4 before:absolute before:left-3 before:h-full before:w-px before:bg-border">
-        {experience.positions.map((position) => (
+        {experience.positions?.map((position) => (
           <ExperiencePositionItem key={position.id} position={position} />
         ))}
       </div>
