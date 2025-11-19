@@ -63,17 +63,17 @@ export const metadata: Metadata = {
     gender: USER.gender,
     images: [
       {
-        url: SITE_INFO.ogImage,
+        url: "/images/preview-card-dark.png",
         width: 1200,
         height: 630,
-        alt: SITE_INFO.name,
+        alt: "dakshyadav.com - Full Stack Developer",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
     creator: "@dakshydv_", // Twitter username
-    images: [SITE_INFO.ogImage],
+    images: ["/images/preview-card-dark.png"],
   },
   icons: {
     icon: [

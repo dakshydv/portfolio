@@ -30,3 +30,7 @@ export const UTM_PARAMS = {
   utm_medium: "referral",
   utm_campaign: "portfolio",
 };
+
+export const siteConfig = {
+  ogImage: "/images/preview-card-dark.png",
+};
