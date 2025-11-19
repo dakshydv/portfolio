@@ -49,7 +49,7 @@ export const USER: User = {
   avatar: "images/profile.jpeg",
   ogImage:
     // "https://assets.chanhdai.com/images/screenshot-og-image-light.png?t=1763205174",
-    "preview-card-dark.png",
+    "/images/preview-card-dark.png",
   namePronunciationUrl: "/audio/chanhdai.mp3",
   timeZone: "Asia/Kolkata",
   keywords: [
