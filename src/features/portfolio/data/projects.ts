@@ -10,6 +10,7 @@ export const PROJECTS: Project[] = [
     liveLink: "https://sketchly.pro/",
     githubLink: "https://github.com/dakshydv/sketchly-nextjs.git",
     image: "/images/infinidraw.png",
+    pinned: true,
     skills: ["Next.js", "Turborepo", "TailwindCSS", "Websockets", "PostgreSQL"],
     description: `A minimalist, collaborative whiteboard tool built with React and TypeScript, featuring real-time drawing, shapes, and text. Supports exporting sketches and offline functionality. Designed for simplicity and ease of use, inspired by Excalidraw.`,
     isExpanded: true,

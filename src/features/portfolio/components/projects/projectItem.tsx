@@ -48,10 +48,12 @@ export function ProjectItem2({ project }: { project: Project }) {
           )} */}
 
         {/* {post.metadata.pinned && ( */}
-        <span className="absolute top-1.5 right-1.5 flex size-6 items-center justify-center rounded-md bg-secondary">
-          <PinIcon className="size-4 rotate-45 text-secondary-foreground" />
-          <span className="sr-only">Pinned</span>
-        </span>
+        {project.pinned && (
+          <span className="absolute top-1.5 right-1.5 flex size-6 items-center justify-center rounded-md bg-secondary">
+            <PinIcon className="size-4 rotate-45 text-secondary-foreground" />
+            <span className="sr-only">Pinned</span>
+          </span>
+        )}
       </div>
 
       <div className="flex flex-col gap-1 p-2">

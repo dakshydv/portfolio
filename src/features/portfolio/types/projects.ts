@@ -17,6 +17,7 @@ export type Project = {
   githubLink: string;
   image?: string;
   video?: string;
+  pinned?: boolean;
   /** Tags/technologies for chips or filtering. */
   skills: string[];
   /** Optional rich description; Markdown and line breaks supported. */

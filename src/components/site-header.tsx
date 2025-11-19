@@ -49,7 +49,7 @@ export function SiteHeader() {
 
         <div className="flex items-center *:first:mr-2">
           {/* <CommandMenu posts={posts} /> */}
-          <NavItemGitHub />
+          {/* <NavItemGitHub /> */}
           <span className="mx-2 flex h-4 w-px bg-border" />
           <ThemeToggle />
           <MobileNav className="sm:hidden" items={MAIN_NAV} />

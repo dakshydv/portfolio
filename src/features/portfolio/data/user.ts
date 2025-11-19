@@ -14,7 +14,7 @@ export const USER: User = {
     "Open Source Contributor",
   ],
   address: "Gurugram, India",
-  phoneNumber: "KzkxODgwMDU5MTE5NQ==", // E.164 format, base64 encoded (https://t.io.vn/base64-string-converter)
+  phoneNumber: "KzkxIDg4MDA1OTExOTU=", // E.164 format, base64 encoded (https://t.io.vn/base64-string-converter)
   email: "ZGFrc2h5YWRhdi5kZXZAZ21haWwuY29t", // base64 encoded
   website: "https://dakshyadav.com",
   jobTitle: "Full Stack Developer",

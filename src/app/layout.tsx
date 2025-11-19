@@ -72,18 +72,13 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    creator: "@iamncdai", // Twitter username
+    creator: "@dakshydv_", // Twitter username
     images: [SITE_INFO.ogImage],
   },
   icons: {
     icon: [
       {
-        url: "https://assets.chanhdai.com/images/favicon.ico",
-        sizes: "any",
-      },
-      {
-        url: "https://assets.chanhdai.com/images/favicon.svg",
-        type: "image/svg+xml",
+        url: "/icons/favicon2.png",
       },
     ],
     apple: {
