@@ -14,9 +14,9 @@ function getWebSiteJsonLd(): WithContext<WebSite> {
   return {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    name: SITE_INFO.name,
-    url: SITE_INFO.url,
-    alternateName: [USER.username],
+    name: "Daksh Yadav",
+    url: "dakshyadav.com",
+    alternateName: ["dakshydv", "dakshydv_"],
   };
 }
 
@@ -36,7 +36,6 @@ const darkModeScript = String.raw`
 `;
 
 export const metadata: Metadata = {
-  metadataBase: new URL(SITE_INFO.url),
   alternates: {
     canonical: "/",
   },
@@ -48,11 +47,11 @@ export const metadata: Metadata = {
   keywords: SITE_INFO.keywords,
   authors: [
     {
-      name: "ncdai",
+      name: "Daksh",
       url: SITE_INFO.url,
     },
   ],
-  creator: "ncdai",
+  creator: "Daksh",
   openGraph: {
     siteName: SITE_INFO.name,
     url: "/",
@@ -63,7 +62,7 @@ export const metadata: Metadata = {
     gender: USER.gender,
     images: [
       {
-        url: "/images/preview-card-dark.png",
+        url: "https://www.dakshyadav.com/images/preview-card-dark.png",
         width: 1200,
         height: 630,
         alt: "dakshyadav.com - Full Stack Developer",
@@ -73,7 +72,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     creator: "@dakshydv_", // Twitter username
-    images: ["/images/preview-card-dark.png"],
+    images: ["https://www.dakshyadav.com/images/preview-card-dark.png"],
   },
   icons: {
     icon: [
@@ -81,11 +80,6 @@ export const metadata: Metadata = {
         url: "/icons/favicon2.png",
       },
     ],
-    apple: {
-      url: "https://assets.chanhdai.com/images/apple-touch-icon.png",
-      type: "image/png",
-      sizes: "180x180",
-    },
   },
 };
 

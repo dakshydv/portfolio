@@ -56,12 +56,12 @@ export default function manifest(): MetadataRoute.Manifest {
         sizes: "1920x1080",
         form_factor: "wide",
       },
-      {
-        src: "https://assets.chanhdai.com/images/screenshot-desktop-light.webp",
-        type: "image/webp",
-        sizes: "1920x1080",
-        form_factor: "wide",
-      },
+      // {
+      //   src: "https://assets.chanhdai.com/images/screenshot-desktop-light.webp",
+      //   type: "image/webp",
+      //   sizes: "1920x1080",
+      //   form_factor: "wide",
+      // },
     ],
   };
 }
