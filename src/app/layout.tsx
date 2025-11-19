@@ -62,7 +62,7 @@ export const metadata: Metadata = {
     gender: USER.gender,
     images: [
       {
-        url: "https://www.dakshyadav.com/images/preview-card-dark.png",
+        url: SITE_INFO.ogImage,
         width: 1200,
         height: 630,
         alt: "dakshyadav.com - Full Stack Developer",
@@ -72,7 +72,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     creator: "@dakshydv_", // Twitter username
-    images: ["https://www.dakshyadav.com/images/preview-card-dark.png"],
+    images: [SITE_INFO.ogImage],
   },
   icons: {
     icon: [

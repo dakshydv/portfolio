@@ -47,9 +47,7 @@ export const USER: User = {
 - Passionate about exploring new technologies and turning ideas into reality through polished, thoughtfully crafted personal projects.
 `,
   avatar: "images/profile.jpeg",
-  ogImage:
-    // "https://assets.chanhdai.com/images/screenshot-og-image-light.png?t=1763205174",
-    "/images/preview-card-dark.png",
+  ogImage: "/images/preview-card-dark.png",
   namePronunciationUrl: "/audio/chanhdai.mp3",
   timeZone: "Asia/Kolkata",
   keywords: [

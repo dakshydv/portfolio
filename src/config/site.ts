@@ -26,11 +26,11 @@ export const SOURCE_CODE_GITHUB_REPO = "dakshydv/portfolio";
 export const SOURCE_CODE_GITHUB_URL = "https://github.com/dakshydv/portfolio";
 
 export const UTM_PARAMS = {
-  utm_source: "chanhdai.com",
+  utm_source: "dakshyadav.com",
   utm_medium: "referral",
   utm_campaign: "portfolio",
 };
 
 export const siteConfig = {
-  ogImage: "/images/preview-card-dark.png",
+  ogImage: "https://www.dakshyadav.com/images/preview-card-dark.png", // Changed to absolute URL
 };
