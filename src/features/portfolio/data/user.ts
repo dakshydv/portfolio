@@ -46,22 +46,23 @@ export const USER: User = {
 - Skilled in **Next.js**, **React**, **TypeScript**, **Golang**, **tRPC**, and modern full-stack technologies, building production-ready solutions for difference domains.
 - Passionate about exploring new technologies and turning ideas into reality through polished, thoughtfully crafted personal projects.
 `,
-  avatar: "https://assets.chanhdai.com/images/chanhdai-avatar-ghibli.webp",
+  avatar: "images/profile.jpeg",
   ogImage:
-    "https://assets.chanhdai.com/images/screenshot-og-image-light.png?t=1763205174",
+    // "https://assets.chanhdai.com/images/screenshot-og-image-light.png?t=1763205174",
+    "preview-card-dark.png",
   namePronunciationUrl: "/audio/chanhdai.mp3",
   timeZone: "Asia/Kolkata",
   keywords: [
     "dakshydv",
-    "nguyenchanhdai",
-    "nguyen chanh dai",
-    "chanhdai",
-    "chanh dai",
-    "iamncdai",
-    "quaric",
-    "zadark",
-    "nguyễn chánh đại",
-    "chánh đại",
+    "daksh yadav",
+    "daksh yadav",
+    "dakshydv_",
+    "daksh github",
+    "dakshyadav",
+    "daksh",
+    "yadav",
+    "dkshydv",
+    "dksh",
   ],
   dateCreated: "2023-10-20", // YYYY-MM-DD
 };
