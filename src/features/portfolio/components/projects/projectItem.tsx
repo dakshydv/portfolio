@@ -29,15 +29,28 @@ export function ProjectItem2({ project }: { project: Project }) {
     >
       {/* {post.metadata.image && ( */}
       <div className="relative select-none [&_img]:aspect-1200/630 [&_img]:rounded-xl">
-        <Image
-          src={project.image ?? ""}
-          alt={project.title}
-          width={1200}
-          height={630}
-          quality={100}
-          className="w-full rounded-xl object-cover"
-          unoptimized
-        />
+        {project.image && (
+          <Image
+            src={project.image ?? ""}
+            alt={project.title}
+            width={1200}
+            height={630}
+            quality={100}
+            className="w-full rounded-xl object-cover"
+            unoptimized
+          />
+        )}
+        {project.video && (
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full rounded-xl object-cover"
+          >
+            <source src={project.video} type="video/mp4" />
+          </video>
+        )}
 
         <div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-black/10 ring-inset dark:ring-white/10" />
 

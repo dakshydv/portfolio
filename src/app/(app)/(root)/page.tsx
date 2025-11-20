@@ -1,6 +1,7 @@
 import dayjs from "dayjs";
 import type { ProfilePage as PageSchema, WithContext } from "schema-dts";
 
+import { OpenSourceContributions } from "@/components/OpenSourceContributions";
 import { About } from "@/features/portfolio/components/about";
 import { Experiences } from "@/features/portfolio/components/experiences";
 import { Overview } from "@/features/portfolio/components/overview";
@@ -36,6 +37,9 @@ export default function Page() {
         <Separator />
 
         <Projects />
+        <Separator />
+
+        <OpenSourceContributions />
         <Separator />
 
         <TeckStack />
