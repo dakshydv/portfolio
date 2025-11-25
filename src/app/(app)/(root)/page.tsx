@@ -39,8 +39,8 @@ export default function Page() {
         <Projects />
         <Separator />
 
-        <OpenSourceContributions />
-        <Separator />
+        {/* <OpenSourceContributions />
+        <Separator /> */}
 
         <TeckStack />
         <Separator />

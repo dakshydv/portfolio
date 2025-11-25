@@ -35,6 +35,15 @@ export const PROJECTS: Project[] = [
     description: `Stop guessing if your APIs are down. Upstack quietly watches your endpoints and alerts you before users notice failures. Get cron-like monitoring without the cron headaches.`,
   },
   {
+    id: "trutalk-therapy",
+    title: "TruTalk Therapy",
+    liveLink: "https://www.trutalktherapy.com",
+    githubLink: "https://github.com/dakshydv/TruTalk-Therapy.git",
+    image: "images/trutalk-therapy.png",
+    skills: ["Next.js", "TailwindCSS", "Nodemailer"],
+    description: `A clean, comforting mental-health service website built for TruTalk Therapy, designed to help patients easily discover services and book sessions. Focuses on trust, accessibility, and a soothing user experience tailored for a psychologist’s clinic.`,
+  },
+  {
     id: "mdntcstms",
     title: "Midnight Customs",
     liveLink: "https://www.mdntcstms.com/",
