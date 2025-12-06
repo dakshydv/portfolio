@@ -1,7 +1,7 @@
-import { MapPinIcon } from "lucide-react";
+import { GlobeIcon, MapPinIcon } from "lucide-react";
 
-// change config user name and email
 import { USER } from "@/features/portfolio/data/user";
+import { urlToName } from "@/utils/url";
 
 import { Panel, PanelContent } from "../panel";
 import { CurrentLocalTimeItem } from "./current-local-time-item";
