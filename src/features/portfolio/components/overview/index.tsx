@@ -1,5 +1,6 @@
 import { MapPinIcon } from "lucide-react";
 
+// change config user name and email
 import { USER } from "@/features/portfolio/data/user";
 
 import { Panel, PanelContent } from "../panel";
