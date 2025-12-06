@@ -2,20 +2,22 @@ import type { Experience } from "../types/experiences";
 
 export const EXPERIENCES: Experience[] = [
   {
-    id: "freelance",
-    companyName: "Freelance",
+    id: "Craon_AI",
+    companyName: "Craon AI",
+    companyLogo: "/images/craon-logo.jpg",
     positions: [
       {
         id: "f0becfba-057d-40db-b252-739e1654faa1",
-        title: "Full-stack Developer",
+        title: "Frontend Intern",
         employmentPeriod: {
-          start: "Dec 2024",
+          start: "Dec 2025",
         },
-        employmentType: "Part-time",
-        description: `- Built a booking management website for customs garage.
-- Built a real-time dashboard for monitoring server health and website traffic.
-- Created an internal tool for a law firm to manage case files and client documents.
-- Built a membership management tool for a gym`,
+        employmentType: "Full-time",
+        description: `- Working on the timeline filmstrip component for an AI-powered video editor.
+- Building intuitive, creator-friendly UI for users with zero video-editing experience.
+- Collaborating closely with founders and a small engineering team to ship core product features.
+- Implementing responsive and high-performance frontend components across the editor.
+`,
         icon: "code",
         skills: [
           "Typescript",
@@ -34,6 +36,36 @@ export const EXPERIENCES: Experience[] = [
       },
     ],
     isCurrentEmployer: true,
+  },
+  {
+    id: "freelance",
+    companyName: "Freelance",
+    positions: [
+      {
+        id: "f0becfba-057d-40db-b252-739e1654faa1",
+        title: "Full-stack Developer",
+        employmentPeriod: {
+          start: "Dec 2024",
+          end: "Dec 2025",
+        },
+        employmentType: "Part-time",
+        description: `- Built a booking management website for customs garage.
+- Built a real-time dashboard for monitoring server health and website traffic.
+- Created an internal tool for a law firm to manage case files and client documents.
+- Built a membership management tool for a gym`,
+        icon: "code",
+        skills: [
+          "Typescript",
+          "Next.js",
+          "React",
+          "Node.js",
+          "TailwindCSS",
+          "PostgreSQL",
+        ],
+        isExpanded: true,
+      },
+    ],
+    isCurrentEmployer: false,
   },
   {
     id: "mdntcstms",
@@ -55,7 +87,7 @@ export const EXPERIENCES: Experience[] = [
 - Ensure UI/UX consistency and adherence to standards.
 `,
         skills: ["TypeScript", "Next.js", "Tailwind CSS", "Nodemailer"],
-        isExpanded: true,
+        isExpanded: false,
       },
     ],
     isCurrentEmployer: false,

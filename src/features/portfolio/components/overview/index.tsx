@@ -21,7 +21,7 @@ export function Overview() {
       <h2 className="sr-only">Overview</h2>
 
       <PanelContent className="space-y-2.5">
-        {/* {USER.jobs.map((job, index) => {
+        {USER.jobs.map((job, index) => {
           return (
             <JobItem
               key={index}
@@ -30,7 +30,7 @@ export function Overview() {
               website={job.website ?? "/"}
             />
           );
-        })} */}
+        })}
 
         <div className="grid gap-x-4 gap-y-2.5 sm:grid-cols-2">
           <IntroItem>
@@ -48,7 +48,7 @@ export function Overview() {
 
           <EmailItem email={USER.email} />
 
-          <IntroItem>
+          {/* <IntroItem>
             <IntroItemIcon>
               <GlobeIcon />
             </IntroItemIcon>
@@ -60,7 +60,7 @@ export function Overview() {
                 {urlToName(USER.website)}
               </IntroItemLink>
             </IntroItemContent>
-          </IntroItem>
+          </IntroItem> */}
 
           {/* <IntroItem>
             <IntroItemIcon>

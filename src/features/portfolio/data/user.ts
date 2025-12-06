@@ -24,11 +24,11 @@ export const USER: User = {
       company: "Sketchly",
       website: "https://www.sketchly.pro",
     },
-    // {
-    //   title: "Founder",
-    //   company: "Quaric",
-    //   website: "https://quaric.com",
-    // },
+    {
+      title: "Frontend Intern",
+      company: "Craon AI",
+      website: "https://x.com/Craon_ai",
+    },
   ],
   //   about: `
   // Hello, World! I am Chánh Đại — a Design Engineer passionate about creating high-performance, user-centric software solutions with intuitive and engaging designs.
