@@ -47,6 +47,7 @@ export function Overview() {
           <PhoneItem phoneNumber={USER.phoneNumber} />
 
           <EmailItem email={USER.email} />
+
           {/* <IntroItem>
             <IntroItemIcon>
               <GlobeIcon />
