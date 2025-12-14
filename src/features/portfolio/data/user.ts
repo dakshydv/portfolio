@@ -25,9 +25,9 @@ export const USER: User = {
       website: "https://www.sketchly.pro",
     },
     {
-      title: "Frontend Intern",
+      title: "Software Developer",
       company: "Craon AI",
-      website: "https://x.com/Craon_ai",
+      website: "https://www.craon.ai",
     },
   ],
   //   about: `

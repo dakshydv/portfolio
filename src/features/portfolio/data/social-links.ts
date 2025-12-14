@@ -19,6 +19,12 @@ export const SOCIAL_LINKS: SocialLink[] = [
     description: "daksh-dev",
     href: "https://linkedin.com/in/daksh-dev",
   },
+  {
+    icon: "resume.png",
+    title: "Resume",
+    description: "Download CV",
+    href: "/resume.pdf",
+  },
   // {
   //   icon: "https://assets.chanhdai.com/images/link-icons/dailydotdev.webp?t=1759581475",
   //   title: "daily.dev",
