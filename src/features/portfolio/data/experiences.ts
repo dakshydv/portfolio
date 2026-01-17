@@ -1,19 +1,53 @@
 import type { Experience } from "../types/experiences";
 
 export const EXPERIENCES: Experience[] = [
+  // {
+  //   id: "Craon_AI_full",
+  //   companyName: "Craon AI",
+  //   companyLogo: "/images/craon-logo.jpg",
+  //   positions:
+  // },
   {
     id: "Craon_AI",
     companyName: "Craon AI",
     companyLogo: "/images/craon-logo.jpg",
     positions: [
       {
+        id: "9f3c2b7a-4e6d-4a1c-9b8f-2d7a5e1c4f90",
+        title: "Full Stack Developer",
+        employmentPeriod: {
+          start: "Jan 2026",
+        },
+        employmentType: "Full-time",
+        description: `
+- Build an AI-powered video editor from scratch, developing core timeline-based editing workflows and system architecture.
+- Develop AI-driven video editing features to automate transitions, scene detection, and smart edits.
+- Build and maintain backend services and video processing pipelines for media management and rendering.
+- Ensure UI/UX consistency, performance optimization, and scalable full stack solutions across the platform.
+`,
+        icon: "code",
+        skills: [
+          "Typescript",
+          "Next.js",
+          "React",
+          "Python",
+          "FastAPI",
+          "MongoDB",
+          "TailwindCSS",
+          "FFmpeg",
+        ],
+        isExpanded: true,
+      },
+      {
         id: "f0becfba-057d-40db-b252-739e1654faa1",
         title: "Frontend Intern",
         employmentPeriod: {
           start: "Dec 2025",
+          end: "Jan 2026",
         },
         employmentType: "Full-time",
-        description: `- Working on the timeline filmstrip component for an AI-powered video editor.
+        description: `
+- Working on the timeline filmstrip component for an AI-powered video editor.
 - Building intuitive, creator-friendly UI for users with zero video-editing experience.
 - Collaborating closely with founders and a small engineering team to ship core product features.
 - Implementing responsive and high-performance frontend components across the editor.
@@ -32,7 +66,7 @@ export const EXPERIENCES: Experience[] = [
           "Motion",
           "Docker",
         ],
-        isExpanded: true,
+        isExpanded: false,
       },
     ],
     isCurrentEmployer: true,

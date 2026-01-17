@@ -20,6 +20,12 @@ export const TECH_STACK: TechStack[] = [
     categories: ["Language"],
   },
   {
+    key: "py",
+    title: "Python",
+    icon: "python.svg",
+    categories: ["Language"],
+  },
+  {
     key: "next",
     title: "Next.js",
     icon: "nextjs.svg",
@@ -49,6 +55,12 @@ export const TECH_STACK: TechStack[] = [
     key: "trpc",
     title: "tRPC",
     icon: "trpc.svg",
+    categories: ["Framework"],
+  },
+  {
+    key: "fastapi",
+    title: "FastAPI",
+    icon: "fastapi.svg",
     categories: ["Framework"],
   },
   {
