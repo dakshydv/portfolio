@@ -43,4 +43,10 @@ export const SOCIAL_LINKS: SocialLink[] = [
   //   description: "@ncdai",
   //   href: "https://www.youtube.com/@ncdai",
   // },
+  {
+    icon: "email",
+    title: "Email",
+    description: "dakshyadav.dev@gmail.com",
+    href: "mailto:dakshyadav.dev@gmail.com",
+  },
 ];

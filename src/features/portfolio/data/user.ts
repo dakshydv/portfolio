@@ -12,12 +12,16 @@ export const USER: User = {
     "Creating with code. Small details matter.",
     "Full Stack Engineer",
     "Open Source Contributor",
+    // "Full Stack Developer @Craon AI",
+    // "Building @Sketchly",
+    // "Open Source Contributor"
   ],
   address: "Gurugram, India",
   phoneNumber: "KzkxIDg4MDA1OTExOTU=", // E.164 format, base64 encoded (https://t.io.vn/base64-string-converter)
   email: "ZGFrc2h5YWRhdi5kZXZAZ21haWwuY29t", // base64 encoded
   website: "https://dakshyadav.com",
-  jobTitle: "Full Stack Developer",
+  jobTitle:
+    "Full Stack Developer @Craon AI | Buliding @Sketchly | Open Source Contributor",
   jobs: [
     {
       title: "Building",

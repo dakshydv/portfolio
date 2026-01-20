@@ -6,6 +6,7 @@ import { NuqsAdapter } from "nuqs/adapters/next/app";
 import type { WebSite, WithContext } from "schema-dts";
 
 import { Providers } from "@/components/providers";
+import { ScrollToTop } from "@/components/scroll-to-top";
 import { META_THEME_COLORS, SITE_INFO } from "@/config/site";
 import { USER } from "@/features/portfolio/data/user";
 import { fontMono, fontSans } from "@/lib/fonts";
@@ -121,7 +122,10 @@ export default function RootLayout({
 
       <body>
         <Providers>
-          <NuqsAdapter>{children}</NuqsAdapter>
+          <NuqsAdapter>
+            {children}
+            <ScrollToTop />
+          </NuqsAdapter>
         </Providers>
       </body>
     </html>

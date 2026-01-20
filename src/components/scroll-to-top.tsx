@@ -36,11 +36,11 @@ export function ScrollToTop({
         className
       )}
       variant="secondary"
-      size="icon-lg"
+      size="icon"
       onClick={() => window.scrollTo({ top: 0 })}
       {...props}
     >
-      <ArrowUpIcon className="size-5" />
+      <ArrowUpIcon />
       <span className="sr-only">Scroll to top</span>
     </Button>
   );

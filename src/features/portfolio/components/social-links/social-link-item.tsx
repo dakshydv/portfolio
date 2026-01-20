@@ -4,6 +4,8 @@ import Image from "next/image";
 import type { SocialLink } from "@/features/portfolio/types/social-links";
 import { cn } from "@/lib/utils";
 
+import { SocialIcon } from "../social-icon";
+
 export function SocialLinkItem({ icon, title, description, href }: SocialLink) {
   return (
     <a
@@ -16,18 +18,22 @@ export function SocialLinkItem({ icon, title, description, href }: SocialLink) {
       target="_blank"
       rel="noopener"
     >
-      <div className="relative size-12 shrink-0">
-        <Image
-          className="rounded-xl"
-          src={`/icons/${icon}`}
-          // src={"/icons/x.webp"}
-          alt={title}
-          width={48}
-          height={48}
-          // quality={100}
-          unoptimized
-        />
-        <div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-black/10 ring-inset dark:ring-white/10" />
+      <div className="relative flex size-12 shrink-0 items-center justify-center rounded-xl bg-muted/50">
+        {icon.includes(".") ? (
+          <>
+            <Image
+              className="rounded-xl"
+              src={`/icons/${icon}`}
+              alt={title}
+              width={48}
+              height={48}
+              unoptimized
+            />
+            <div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-black/10 ring-inset dark:ring-white/10" />
+          </>
+        ) : (
+          <SocialIcon title={title} className="size-6 text-foreground" />
+        )}
       </div>
 
       <div className="flex-1">

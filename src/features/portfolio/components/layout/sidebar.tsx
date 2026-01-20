@@ -1,20 +1,22 @@
 import Link from "next/link";
 
 import { ThemeToggle } from "@/components/theme-toggle";
-import { Button } from "@/components/ui/button"; // Assuming shadcn/ui generic button exists, otherwise I'll use standard HTML or check components
 import { SOCIAL_LINKS } from "@/features/portfolio/data/social-links";
 import { USER } from "@/features/portfolio/data/user";
 import { cn } from "@/lib/utils";
 import { FlipSentences } from "@/registry/flip-sentences";
 
+// Sidebar path: src/features/portfolio/components/layout/sidebar.tsx
+// Verified path: src/features/portfolio/components/verified-icon.tsx
+// Sidebar path: src/features/portfolio/components/layout/sidebar.tsx
+// Verified path: src/features/portfolio/components/verified-icon.tsx
+// Relative path: ../verified-icon
+import { SocialIcon } from "../social-icon";
 // If Button doesn't exist, I'll check components.json or just use standard elements.
 // Checking recent file list, I saw components.json so shadcn is likely used.
 // But I haven't listed src/components/ui/button.tsx. I'll use simple elements to be safe or check first.
 // I'll stick to standard tailwind classes for now to avoid dependency issues if I'm not sure about the UI library path.
 import { VerifiedIcon } from "../verified-icon"; // Adjusted import path assuming Sidebar is in components/layout/sidebar.tsx and VerifiedIcon is in components/verified-icon.tsx. VerifiedIcon is in features/portfolio/components/verified-icon.tsx.
-// Sidebar path: src/features/portfolio/components/layout/sidebar.tsx
-// Verified path: src/features/portfolio/components/verified-icon.tsx
-// Relative path: ../verified-icon
 
 export function Sidebar({ className }: { className?: string }) {
   return (
@@ -59,7 +61,7 @@ export function Sidebar({ className }: { className?: string }) {
       </div>
 
       {/* Navigation */}
-      <nav className="mt-10 flex-1 lg:mt-48">
+      <nav className="mt-10 flex-1 lg:mt-28">
         <ul className="grid grid-cols-2 gap-2 lg:flex lg:flex-col lg:gap-0 lg:space-y-3">
           {["About", "Projects", "Stack", "Experience"].map((item) => (
             <li key={item}>
@@ -97,31 +99,4 @@ export function Sidebar({ className }: { className?: string }) {
       </div>
     </aside>
   );
-}
-
-import {
-  FileText,
-  Github,
-  Globe,
-  Link as LinkIcon,
-  Linkedin,
-  Twitter,
-} from "lucide-react";
-
-function SocialIcon({
-  title,
-  className,
-}: {
-  title: string;
-  className?: string;
-}) {
-  const t = title.toLowerCase();
-  if (t.includes("github")) return <Github className={className} />;
-  if (t.includes("linkedin")) return <Linkedin className={className} />;
-  if (t.includes("twitter") || t.includes("x ("))
-    return <Twitter className={className} />;
-  if (t.includes("resume")) return <FileText className={className} />;
-  if (t.includes("web") || t.includes("site"))
-    return <Globe className={className} />;
-  return <LinkIcon className={className} />;
 }
