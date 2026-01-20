@@ -1,19 +1,17 @@
 import { EXPERIENCES } from "../../data/experiences";
-import { Panel, PanelHeader, PanelTitle } from "../panel";
 import { ExperienceItem } from "./experience-item";
 
 export function Experiences() {
   return (
-    <Panel id="experience">
-      <PanelHeader>
-        <PanelTitle>Experience</PanelTitle>
-      </PanelHeader>
-
-      <div className="pr-2 pl-4">
-        {EXPERIENCES.map((experience) => (
-          <ExperienceItem key={experience.id} experience={experience} />
-        ))}
-      </div>
-    </Panel>
+    <div className="ml-2 space-y-0 border-l border-border/50 pl-4">
+      {EXPERIENCES.map((experience) => (
+        <div
+          key={experience.id}
+          className="border-b border-border/50 py-6 first:pt-0 last:border-0"
+        >
+          <ExperienceItem experience={experience} />
+        </div>
+      ))}
+    </div>
   );
 }

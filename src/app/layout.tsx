@@ -98,7 +98,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${fontSans.variable} ${fontMono.variable}`}
+      className={`${fontSans.variable} ${fontMono.variable} overflow-x-hidden`}
       suppressHydrationWarning
     >
       <head>

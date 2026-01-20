@@ -1,16 +1,20 @@
 import dayjs from "dayjs";
 import type { ProfilePage as PageSchema, WithContext } from "schema-dts";
 
-import { OpenSourceContributions } from "@/components/OpenSourceContributions";
 import { About } from "@/features/portfolio/components/about";
 import { Experiences } from "@/features/portfolio/components/experiences";
+import { Sidebar } from "@/features/portfolio/components/layout/sidebar";
 import { Overview } from "@/features/portfolio/components/overview";
-import { ProfileHeader } from "@/features/portfolio/components/profile-header";
+// import { ProfileHeader } from "@/features/portfolio/components/profile-header"; // Moved to Sidebar
 import { Projects } from "@/features/portfolio/components/projects";
-import { SocialLinks } from "@/features/portfolio/components/social-links";
+// import { SocialLinks } from "@/features/portfolio/components/social-links"; // Moved to Sidebar
 import { TeckStack } from "@/features/portfolio/components/teck-stack";
 import { USER } from "@/features/portfolio/data/user";
 import { cn } from "@/lib/utils";
+
+function Separator() {
+  return <div className="my-8 border-t border-border/40 lg:my-12" />; // Using explicit border instead of hr for better control
+}
 
 export default function Page() {
   return (
@@ -22,40 +26,44 @@ export default function Page() {
         }}
       />
 
-      <div className="mx-auto md:max-w-3xl *:[[id]]:scroll-mt-22">
-        {/* <ProfileCover /> */}
-        <ProfileHeader />
-        <Separator />
+      <div className="min-h-screen lg:flex">
+        {/* Left Column: Fixed Sidebar */}
+        <div className="z-50 border-r border-border bg-background/50 backdrop-blur-xl lg:fixed lg:inset-y-0 lg:w-96 xl:w-[28rem]">
+          <Sidebar />
+        </div>
 
-        <Overview />
-        <Separator />
+        {/* Right Column: Scrollable Content */}
+        <main className="min-w-0 flex-1 lg:pl-96 xl:pl-[28rem]">
+          <div className="mx-auto max-w-4xl space-y-12 px-6 py-12 lg:px-12">
+            <section id="about" className="scroll-mt-24">
+              <h3 className="mb-6 text-xl font-semibold">About</h3>
+              <About />
+            </section>
 
-        <SocialLinks />
-        <Separator />
+            <Separator />
 
-        <About />
-        <Separator />
+            <section id="experiences" className="scroll-mt-24">
+              <h3 className="mb-6 text-xl font-semibold">Experience</h3>
+              <Experiences />
+            </section>
 
-        <Projects />
-        <Separator />
+            <Separator />
 
-        {/* <OpenSourceContributions />
-        <Separator /> */}
+            <section id="projects" className="scroll-mt-24">
+              <h3 className="mb-6 text-xl font-semibold">Featured Projects</h3>
+              <Projects />
+            </section>
 
-        <TeckStack />
-        <Separator />
+            <Separator />
 
-        <Experiences />
-        <Separator />
+            <section id="stack" className="scroll-mt-24">
+              <h3 className="mb-6 text-xl font-semibold">Tech Stack</h3>
+              <TeckStack />
+            </section>
+          </div>
 
-        {/* <GitHubContributions />
-        <Separator /> */}
-
-        {/* <TestimonialsMarquee />
-        <Separator /> */}
-
-        {/* <Blog />
-        <Separator /> */}
+          <Footer />
+        </main>
       </div>
     </>
   );
@@ -76,15 +84,13 @@ function getPageJsonLd(): WithContext<PageSchema> {
   };
 }
 
-function Separator({ className }: { className?: string }) {
+function Footer() {
   return (
-    <div
-      className={cn(
-        "relative flex h-8 w-full border-x border-edge",
-        "before:absolute before:-left-[100vw] before:-z-1 before:h-8 before:w-[200vw]",
-        "before:bg-[repeating-linear-gradient(315deg,var(--pattern-foreground)_0,var(--pattern-foreground)_1px,transparent_0,transparent_50%)] before:bg-size-[10px_10px] before:[--pattern-foreground:var(--color-edge)]/56",
-        className
-      )}
-    />
+    <footer className="border-t border-border px-6 py-8 text-center text-sm text-balance text-muted-foreground lg:px-12 lg:text-left">
+      <p className="mb-2">
+        © {new Date().getFullYear()} {USER.displayName}. All rights reserved.
+      </p>
+      <p className="font-mono text-xs opacity-70">Inspired by chanhdai.com</p>
+    </footer>
   );
 }

@@ -20,13 +20,7 @@ export function ProjectItem2({ project }: { project: Project }) {
       ? p.link
       : undefined);
   return (
-    <div
-      className={cn(
-        "group/post flex flex-col gap-2 p-2",
-        "max-sm:screen-line-before max-sm:screen-line-after",
-        "sm:nth-[2n+1]:screen-line-before sm:nth-[2n+1]:screen-line-after"
-      )}
-    >
+    <div className={cn("group/post flex flex-col gap-2 p-2")}>
       {/* {post.metadata.image && ( */}
       <div className="relative select-none [&_img]:aspect-1200/630 [&_img]:rounded-xl">
         {project.image && (
