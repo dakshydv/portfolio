@@ -20,7 +20,7 @@ export function Sidebar({ className }: { className?: string }) {
   return (
     <aside
       className={cn(
-        "flex h-full flex-col px-6 py-6 lg:px-8 lg:py-12",
+        "flex h-full flex-col px-6 pt-6 pb-6 lg:px-8 lg:pt-12 lg:pb-4",
         className
       )}
     >
@@ -59,7 +59,7 @@ export function Sidebar({ className }: { className?: string }) {
       </div>
 
       {/* Navigation */}
-      <nav className="mt-8 flex-1 lg:mt-12">
+      <nav className="mt-10 flex-1 lg:mt-48">
         <ul className="grid grid-cols-2 gap-2 lg:flex lg:flex-col lg:gap-0 lg:space-y-3">
           {["About", "Projects", "Stack", "Experience"].map((item) => (
             <li key={item}>
@@ -78,7 +78,7 @@ export function Sidebar({ className }: { className?: string }) {
       </nav>
 
       {/* Social Links */}
-      <div className="mt-8 flex items-center gap-4 border-t border-border/40 pt-4 lg:mt-auto lg:border-0 lg:pt-0">
+      <div className="mt-10 flex items-center gap-4 border-t border-border/40 pt-4 lg:mt-48 lg:mt-auto lg:border-0 lg:pt-0">
         {SOCIAL_LINKS.map((link) => (
           <a
             key={link.title}
