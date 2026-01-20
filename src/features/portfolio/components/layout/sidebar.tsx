@@ -42,17 +42,19 @@ export function Sidebar({ className }: { className?: string }) {
               aria-label="Verified"
             />
           </h1>
-          <h2 className="text-base font-medium text-muted-foreground lg:text-lg">
+          {/* <h2 className="text-base font-medium text-muted-foreground lg:text-lg">
             {USER.jobTitle}
-          </h2>
+          </h2> */}
           {/* Mobile: Flip sentences hidden or compact? Keeping hidden for now or standard flow. */}
           <div className="h-6 max-w-[200px] text-sm text-balance text-muted-foreground lg:hidden">
+            <FlipSentences>{USER.flipSentences}</FlipSentences>
             {/* Shorter info on mobile if needed, or keeping it simpel */}
+            {/* hi there */}
           </div>
         </div>
       </div>
 
-      <div className="mt-4 hidden h-12 max-w-xs text-sm text-balance text-muted-foreground lg:block">
+      <div className="hidden h-12 max-w-xs text-sm text-balance text-muted-foreground lg:block">
         <FlipSentences>{USER.flipSentences}</FlipSentences>
       </div>
 

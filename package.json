@@ -1,13 +1,13 @@
 {
-  "name": "chanhdai.com",
+  "name": "dakshyadav.com",
   "version": "0.1.0",
   "description": "A minimal, pixel-perfect dev portfolio, component registry, and blog.",
-  "homepage": "https://chanhdai.com",
+  "homepage": "https://dakshyadav.com",
   "license": "MIT",
   "author": {
-    "name": "Nguyen Chanh Dai",
-    "email": "dai@chanhdai.com",
-    "url": "https://github.com/ncdai"
+    "name": "Daksh Yadav",
+    "email": "dakshyadav.dev@gmail.com",
+    "url": "https://dakshyadav.com"
   },
   "contributors": [
     {
