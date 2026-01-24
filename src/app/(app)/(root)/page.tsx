@@ -1,20 +1,12 @@
 import dayjs from "dayjs";
 import type { ProfilePage as PageSchema, WithContext } from "schema-dts";
 
-import { About } from "@/features/portfolio/components/about";
-import { Experiences } from "@/features/portfolio/components/experiences";
-import { Sidebar } from "@/features/portfolio/components/layout/sidebar";
-import { Overview } from "@/features/portfolio/components/overview";
-// import { ProfileHeader } from "@/features/portfolio/components/profile-header"; // Moved to Sidebar
-import { Projects } from "@/features/portfolio/components/projects";
-// import { SocialLinks } from "@/features/portfolio/components/social-links"; // Moved to Sidebar
-import { TeckStack } from "@/features/portfolio/components/teck-stack";
+import { ThemeToggle } from "@/components/theme-toggle";
+import { ExperienceSection } from "@/features/portfolio/components/layout/experience-section";
+import { HeroSection } from "@/features/portfolio/components/layout/hero-section";
+import { ProjectsSection } from "@/features/portfolio/components/layout/projects-section";
+import { TechSection } from "@/features/portfolio/components/layout/tech-section";
 import { USER } from "@/features/portfolio/data/user";
-import { cn } from "@/lib/utils";
-
-function Separator() {
-  return <div className="my-8 border-t border-border/40 lg:my-12" />; // Using explicit border instead of hr for better control
-}
 
 export default function Page() {
   return (
@@ -26,44 +18,63 @@ export default function Page() {
         }}
       />
 
-      <div className="min-h-screen lg:flex">
-        {/* Left Column: Fixed Sidebar */}
-        <div className="z-50 border-r border-border bg-background/50 backdrop-blur-xl lg:fixed lg:inset-y-0 lg:w-96 xl:w-[28rem]">
-          <Sidebar />
-        </div>
-
-        {/* Right Column: Scrollable Content */}
-        <main className="min-w-0 flex-1 lg:pl-96 xl:pl-[28rem]">
-          <div className="mx-auto max-w-4xl space-y-12 px-6 py-12 lg:px-12">
-            <section id="about" className="scroll-mt-24">
-              <h3 className="mb-6 text-xl font-semibold">About</h3>
-              <About />
-            </section>
-
-            <Separator />
-
-            <section id="experiences" className="scroll-mt-24">
-              <h3 className="mb-6 text-xl font-semibold">Experience</h3>
-              <Experiences />
-            </section>
-
-            <Separator />
-
-            <section id="projects" className="scroll-mt-24">
-              <h3 className="mb-6 text-xl font-semibold">Featured Projects</h3>
-              <Projects />
-            </section>
-
-            <Separator />
-
-            <section id="stack" className="scroll-mt-24">
-              <h3 className="mb-6 text-xl font-semibold">Tech Stack</h3>
-              <TeckStack />
-            </section>
+      <div className="min-h-screen bg-background">
+        {/* Minimal Header */}
+        <header className="fixed top-0 right-0 left-0 z-50 border-b border-border/40 bg-background/90 backdrop-blur-sm">
+          <div className="mx-auto flex h-12 max-w-2xl items-center justify-between px-5">
+            <span className="text-sm font-medium tracking-tight">
+              {USER.firstName.toLowerCase()}
+              {/* <span className="text-muted-foreground">.dev</span> */}
+            </span>
+            <div className="flex items-center gap-5">
+              <nav className="hidden items-center gap-5 sm:flex">
+                {["Work", "Projects", "Skills"].map((item) => (
+                  <a
+                    key={item}
+                    href={`#${item.toLowerCase()}`}
+                    className="text-xs text-muted-foreground transition-colors hover:text-foreground"
+                  >
+                    {item}
+                  </a>
+                ))}
+              </nav>
+              <ThemeToggle />
+            </div>
           </div>
+        </header>
 
-          <Footer />
+        {/* Main Content */}
+        <main className="mx-auto max-w-2xl px-5 pt-20 pb-16">
+          {/* Hero Section */}
+          <HeroSection />
+
+          {/* Divider */}
+          <hr className="my-10 border-border/50" />
+
+          {/* Experience Section */}
+          <ExperienceSection />
+
+          {/* Divider */}
+          <hr className="my-10 border-border/50" />
+
+          {/* Projects Section */}
+          <ProjectsSection />
+
+          {/* Divider */}
+          <hr className="my-10 border-border/50" />
+
+          {/* Tech Stack Section */}
+          <TechSection />
         </main>
+
+        {/* Footer */}
+        <footer className="border-t border-border/40">
+          <div className="mx-auto max-w-2xl px-5 py-8">
+            <p className="text-center text-xs text-muted-foreground">
+              © {new Date().getFullYear()} {USER.displayName}
+            </p>
+          </div>
+        </footer>
       </div>
     </>
   );
@@ -82,15 +93,4 @@ function getPageJsonLd(): WithContext<PageSchema> {
       image: USER.avatar,
     },
   };
-}
-
-function Footer() {
-  return (
-    <footer className="border-t border-border px-6 py-8 text-center text-sm text-balance text-muted-foreground lg:px-12 lg:text-left">
-      <p className="mb-2">
-        © {new Date().getFullYear()} {USER.displayName}. All rights reserved.
-      </p>
-      <p className="font-mono text-xs opacity-70">Inspired by chanhdai.com</p>
-    </footer>
-  );
 }
