@@ -20,10 +20,11 @@ export default function Page() {
 
       <div className="min-h-screen bg-background">
         {/* Minimal Header */}
-        <header className="fixed top-0 right-0 left-0 z-50 border-b border-border/40 bg-background/90 backdrop-blur-sm">
-          <div className="mx-auto flex h-12 max-w-2xl items-center justify-between px-5">
+        <header className="fixed top-0 right-0 left-0 z-50 bg-background/90 backdrop-blur-sm">
+          <div className="mx-auto flex h-12 max-w-2xl items-center justify-between border-b border-border/40 px-5">
             <span className="text-sm font-medium tracking-tight">
-              {USER.firstName.toLowerCase()}
+              {/* {USER.firstName.toLowerCase()} */}
+              Daksh
               {/* <span className="text-muted-foreground">.dev</span> */}
             </span>
             <div className="flex items-center gap-5">

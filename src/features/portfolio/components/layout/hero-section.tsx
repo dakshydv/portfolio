@@ -41,34 +41,45 @@ export function HeroSection() {
 
           {/* Social Links - minimal icons with subtle hover */}
           <div className="flex items-center justify-center gap-1 pt-3 sm:justify-start">
-            {SOCIAL_LINKS.filter((link) => link.title !== "Email").map(
-              (link) => (
-                <a
-                  key={link.title}
-                  href={link.href}
-                  target={link.href.startsWith("/") ? undefined : "_blank"}
-                  rel={
-                    link.href.startsWith("/")
-                      ? undefined
-                      : "noopener noreferrer"
-                  }
-                  className="group relative flex items-center justify-center rounded-lg p-2.5 text-muted-foreground/70 transition-colors duration-150 hover:text-foreground"
-                  aria-label={link.title}
-                >
-                  <span className="absolute inset-0 rounded-lg bg-foreground/0 transition-colors duration-150 group-hover:bg-foreground/5" />
-                  <SocialIcon
-                    title={link.title}
-                    className="relative size-[18px]"
-                  />
-                </a>
-              )
+            {SOCIAL_LINKS.filter(
+              (link) => link.title !== "Email" && link.title !== "Resume"
+            ).map((link) => (
+              <a
+                key={link.title}
+                href={link.href}
+                target={link.href.startsWith("/") ? undefined : "_blank"}
+                rel={
+                  link.href.startsWith("/") ? undefined : "noopener noreferrer"
+                }
+                className="group relative flex items-center justify-center rounded-lg p-2.5 text-muted-foreground/70 transition-colors duration-150 hover:text-foreground"
+                aria-label={link.title}
+              >
+                <span className="absolute inset-0 rounded-lg bg-foreground/0 transition-colors duration-150 group-hover:bg-foreground/5" />
+                <SocialIcon
+                  title={link.title}
+                  className="relative size-[18px]"
+                />
+              </a>
+            ))}
+            {/* Email icon */}
+            {SOCIAL_LINKS.find((l) => l.title === "Email") && (
+              <a
+                href={
+                  SOCIAL_LINKS.find((l) => l.title === "Email")?.href ?? "#"
+                }
+                className="group relative flex items-center justify-center rounded-lg p-2.5 text-muted-foreground/70 transition-colors duration-150 hover:text-foreground"
+                aria-label="Email"
+              >
+                <span className="absolute inset-0 rounded-lg bg-foreground/0 transition-colors duration-150 group-hover:bg-foreground/5" />
+                <SocialIcon title="Email" className="relative size-[18px]" />
+              </a>
             )}
             <span className="mx-2 h-4 w-px bg-border/50" />
             <a
               href={SOCIAL_LINKS.find((l) => l.title === "Resume")?.href ?? "#"}
               className="text-xs font-medium text-muted-foreground/70 transition-colors duration-150 hover:text-foreground"
             >
-              Resume ↗
+              Resume
             </a>
           </div>
         </div>
