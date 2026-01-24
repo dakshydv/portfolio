@@ -12,7 +12,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
     <>
       <SiteHeader />
       <main className="max-w-screen overflow-x-hidden px-2">{children}</main>
-      <SiteFooter />
+      {/* <SiteFooter /> */}
       <ScrollToTop />
     </>
   );
