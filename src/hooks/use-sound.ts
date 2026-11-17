@@ -52,6 +52,10 @@ export function useSound(url: string) {
 
   const play = useCallback(() => {
     if (audioCtxRef.current && bufferRef.current) {
+      // Safari starts audio contexts suspended until a user gesture.
+      if (audioCtxRef.current.state === "suspended") {
+        void audioCtxRef.current.resume().catch(() => {});
+      }
       const source = audioCtxRef.current.createBufferSource();
       source.buffer = bufferRef.current;
       source.connect(audioCtxRef.current.destination);

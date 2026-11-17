@@ -10,9 +10,9 @@ export function SiteHeader() {
   return (
     <SiteHeaderWrapper
       className={cn(
-        "group/header sticky top-0 z-50 border-b border-transparent bg-background/80 backdrop-blur-md",
+        "group/header sticky top-0 z-50 border-b border-transparent bg-background",
         "transition-colors duration-300 data-[affix=true]:border-edge",
-        "boxy:border-edge boxy:bg-background/90 boxy:px-3"
+        "boxy:border-edge boxy:px-3"
       )}
     >
       <div className="mx-auto flex h-14 max-w-2xl items-center justify-between gap-4 px-4 boxy:h-12 boxy:max-w-3xl boxy:border-x boxy:border-edge boxy:pr-2 boxy:pl-3">

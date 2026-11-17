@@ -13,9 +13,10 @@ export function useMetaColor() {
   }, [resolvedTheme]);
 
   const setMetaColor = React.useCallback((color: string) => {
+    // Next.js can render the viewport tag more than once; update every copy.
     document
-      .querySelector('meta[name="theme-color"]')
-      ?.setAttribute("content", color);
+      .querySelectorAll('meta[name="theme-color"]')
+      .forEach((meta) => meta.setAttribute("content", color));
   }, []);
 
   return {

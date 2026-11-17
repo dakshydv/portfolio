@@ -35,7 +35,6 @@ export const USER: User = {
 - Passionate about exploring new technologies and turning ideas into reality through polished, thoughtfully crafted personal projects.
 `,
   avatar: "images/profile.jpeg",
-  ogImage: "/images/preview-card-dark.png",
   timeZone: "Asia/Kolkata",
   keywords: [
     "dakshydv",

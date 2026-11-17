@@ -24,7 +24,9 @@ function getWebSiteJsonLd(): WithContext<WebSite> {
 const darkModeScript = String.raw`
   try {
     if (localStorage.theme === 'dark' || ((!('theme' in localStorage) || localStorage.theme === 'system') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-      document.querySelector('meta[name="theme-color"]').setAttribute('content', '${META_THEME_COLORS.dark}')
+      document.querySelectorAll('meta[name="theme-color"]').forEach(function (meta) {
+        meta.setAttribute('content', '${META_THEME_COLORS.dark}')
+      })
     }
   } catch (_) {}
 
@@ -43,6 +45,8 @@ const darkModeScript = String.raw`
 `;
 
 export const metadata: Metadata = {
+  // Makes generated assets such as the Open Graph image absolute URLs.
+  metadataBase: new URL(SITE_INFO.url),
   alternates: {
     canonical: "/",
   },
@@ -67,19 +71,10 @@ export const metadata: Metadata = {
     lastName: USER.lastName,
     username: USER.username,
     gender: USER.gender,
-    images: [
-      {
-        url: "https://www.dakshyadav.com/images/preview-card-dark.png",
-        width: 1200,
-        height: 630,
-        alt: "dakshyadav.com - Full Stack Developer",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
     creator: "@dakshydv_", // Twitter username
-    images: ["https://www.dakshyadav.com/images/preview-card-dark.png"],
   },
   icons: {
     icon: [

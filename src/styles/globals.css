@@ -361,6 +361,12 @@
     border-radius: 4px;
   }
 
+  /* An explicit root background lets iOS Safari tint the notch and
+     overscroll areas from the current theme. */
+  html {
+    @apply bg-background;
+  }
+
   body {
     @apply bg-background font-sans text-foreground antialiased;
     font-synthesis-weight: none;

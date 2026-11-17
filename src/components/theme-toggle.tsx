@@ -19,13 +19,17 @@ export function ThemeToggle() {
   const playClick = useSound("/audio/ui-sounds/click.wav");
 
   const switchTheme = useCallback(() => {
-    playClick();
-    setTheme(resolvedTheme === "dark" ? "light" : "dark");
-    setMetaColor(
-      resolvedTheme === "dark"
-        ? META_THEME_COLORS.light
-        : META_THEME_COLORS.dark
-    );
+    const next = resolvedTheme === "dark" ? "light" : "dark";
+    setTheme(next);
+    setMetaColor(META_THEME_COLORS[next]);
+
+    // The click sound is decorative; never let audio errors (e.g. Safari's
+    // autoplay rules) block the theme change.
+    try {
+      playClick();
+    } catch {
+      // ignore
+    }
   }, [resolvedTheme, setTheme, setMetaColor, playClick]);
 
   return (

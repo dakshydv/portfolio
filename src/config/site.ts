@@ -4,7 +4,6 @@ import type { NavItem } from "@/types/nav";
 export const SITE_INFO = {
   name: USER.displayName,
   url: "https://dakshyadav.com",
-  ogImage: "https://www.dakshyadav.com/images/preview-card-dark.png", // Changed from USER.ogImage
   description: USER.bio,
   keywords: USER.keywords,
 };
@@ -29,8 +28,4 @@ export const UTM_PARAMS = {
   utm_source: "dakshyadav.com",
   utm_medium: "referral",
   utm_campaign: "portfolio",
-};
-
-export const siteConfig = {
-  ogImage: "https://www.dakshyadav.com/images/preview-card-dark.png", // Changed to absolute URL
 };
