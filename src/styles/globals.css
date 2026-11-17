@@ -117,15 +117,6 @@
   }
 }
 
-@utility scroll-progress {
-  transform-origin: left;
-  transform: scaleX(0);
-  @supports (animation-timeline: scroll()) {
-    animation: grow-x linear both;
-    animation-timeline: scroll(root);
-  }
-}
-
 @keyframes reveal-in {
   from {
     opacity: 0;
@@ -134,12 +125,6 @@
   to {
     opacity: 1;
     transform: none;
-  }
-}
-
-@keyframes grow-x {
-  to {
-    transform: scaleX(1);
   }
 }
 
@@ -363,10 +348,11 @@
 
   [data-design="boxy"] body {
     background-image: radial-gradient(
-      color-mix(in oklab, var(--edge) 80%, transparent) 1px,
+      color-mix(in oklab, var(--edge) 65%, transparent) 1px,
       transparent 0
     );
-    background-size: 16px 16px;
+    background-size: 20px 20px;
+    background-attachment: fixed;
   }
 
   :where(a, button, summary):focus-visible {

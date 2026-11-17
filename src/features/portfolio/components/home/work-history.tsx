@@ -14,11 +14,12 @@ import type {
 } from "@/features/portfolio/types/experiences";
 import { cn } from "@/lib/utils";
 
+import { ExperienceIcon } from "../experiences/experience-position-icon";
 import { Section } from "./section";
 
 export function WorkHistory() {
   return (
-    <Section id="work" index="01" label="work" title="Where I've worked">
+    <Section id="work" index="02" label="work" title="Where I've worked">
       <ol>
         {EXPERIENCES.map((experience) => (
           <Company key={experience.id} experience={experience} />
@@ -37,28 +38,15 @@ function Company({ experience }: { experience: Experience }) {
       className={cn(
         "relative grid grid-cols-[2.25rem_1fr] gap-x-4 border-t border-dashed border-edge py-5 first:border-t-0 first:pt-0",
         "before:absolute before:top-[3.75rem] before:bottom-2 before:left-[1.125rem] before:w-px before:bg-linear-to-b before:from-edge before:to-transparent first:before:top-11",
-        "boxy:border-solid boxy:px-4 boxy:before:hidden boxy:first:pt-5"
+        "boxy:block boxy:border-solid boxy:p-0 boxy:before:hidden boxy:first:pt-0"
       )}
     >
-      <div className="relative z-1 flex size-9 items-center justify-center overflow-hidden rounded-lg bg-muted ring-1 ring-edge select-none boxy:rounded-sm">
-        {experience.companyLogo ? (
-          <Image
-            src={experience.companyLogo}
-            alt=""
-            width={36}
-            height={36}
-            className="size-full object-cover"
-            unoptimized
-          />
-        ) : (
-          <span className="font-serif text-lg text-muted-foreground italic">
-            {name.charAt(0).toLowerCase()}
-          </span>
-        )}
-      </div>
+      <div className="contents boxy:flex boxy:items-center boxy:gap-3 boxy:px-5 boxy:pt-5 boxy:pb-1.5">
+        <div className="relative z-1 size-9 shrink-0 overflow-hidden rounded-lg ring-1 ring-edge select-none boxy:size-8 boxy:rounded-sm">
+          <CompanyMark experience={experience} />
+        </div>
 
-      <div className="min-w-0">
-        <h3 className="flex h-9 items-center gap-2 font-medium">
+        <h3 className="flex h-9 items-center gap-2 font-medium boxy:h-auto boxy:min-w-0 boxy:flex-1 boxy:flex-wrap boxy:gap-x-2 boxy:gap-y-0.5 boxy:leading-snug">
           {name}
           {experience.isCurrentEmployer && !isEducation && (
             <span className="rounded-full bg-success/10 px-1.5 py-px font-mono text-[10px] text-success boxy:rounded-sm">
@@ -67,15 +55,81 @@ function Company({ experience }: { experience: Experience }) {
           )}
         </h3>
 
-        <ul className="mt-1 space-y-0.5">
-          {experience.positions?.map((position) => (
-            <Position key={position.id} position={position} />
-          ))}
-        </ul>
+        <CompanySpan experience={experience} />
       </div>
+
+      <ul className="col-start-2 mt-1 space-y-0.5 boxy:mt-0 boxy:space-y-0 boxy:px-5 boxy:pb-4">
+        {experience.positions?.map((position) => (
+          <Position key={position.id} position={position} />
+        ))}
+      </ul>
     </li>
   );
 }
+
+function initials(name: string) {
+  const words = name.split(/\s+/).filter(Boolean);
+  if (words.length > 1) return (words[0][0] + words[1][0]).toUpperCase();
+  return name.slice(0, 2).replace(/^./, (c) => c.toUpperCase());
+}
+
+/**
+ * Company logo, or a dark tile matching how real logos sit in the list:
+ * an icon when one is configured, otherwise the company's initials.
+ */
+function CompanyMark({ experience }: { experience: Experience }) {
+  const name = experience.companyName ?? "";
+
+  if (experience.companyLogo) {
+    return (
+      <Image
+        src={experience.companyLogo}
+        alt=""
+        width={36}
+        height={36}
+        className="size-full object-cover"
+        unoptimized
+      />
+    );
+  }
+
+  return (
+    <span className="flex size-full items-center justify-center bg-linear-to-br from-zinc-800 to-zinc-950 text-zinc-100 shadow-[inset_0_1px_0_rgb(255_255_255/0.08)]">
+      {experience.companyIcon ? (
+        <ExperienceIcon icon={experience.companyIcon} className="size-4" />
+      ) : (
+        <span className="font-mono text-[11px] font-semibold tracking-tight">
+          {initials(name)}
+        </span>
+      )}
+    </span>
+  );
+}
+
+/** Overall tenure across all roles; positions are listed newest first. */
+function CompanySpan({ experience }: { experience: Experience }) {
+  const positions = experience.positions ?? [];
+  const start = positions.at(-1)?.employmentPeriod?.start;
+  if (!start) return null;
+  const end = positions[0]?.employmentPeriod?.end ?? "now";
+
+  return (
+    <span className="hidden shrink-0 font-mono text-[11px] text-muted-foreground tabular-nums boxy:sm:inline">
+      {start} – {end}
+    </span>
+  );
+}
+
+/**
+ * Tree connector for roles in the boxy design: a vertical spine aligned to
+ * the company logo, with a short tick into each role.
+ */
+const treeBranch = cn(
+  "boxy:relative boxy:pl-8",
+  "boxy:before:absolute boxy:before:top-0 boxy:before:bottom-0 boxy:before:left-4 boxy:before:w-px boxy:before:bg-edge",
+  "boxy:last:before:bottom-auto boxy:last:before:h-[1.0625rem]",
+  "boxy:after:absolute boxy:after:top-[1.0625rem] boxy:after:left-4 boxy:after:h-px boxy:after:w-2.5 boxy:after:bg-edge"
+);
 
 function Period({ position }: { position: ExperiencePosition }) {
   const { start, end } = position.employmentPeriod ?? {};
@@ -108,7 +162,12 @@ function Position({ position }: { position: ExperiencePosition }) {
 
   if (!hasDetails) {
     return (
-      <li className="flex flex-col gap-0.5 py-1.5 sm:flex-row sm:items-baseline sm:justify-between sm:gap-4">
+      <li
+        className={cn(
+          "flex flex-col gap-0.5 py-1.5 sm:flex-row sm:items-baseline sm:justify-between sm:gap-4",
+          treeBranch
+        )}
+      >
         <PositionLabel position={position} />
         <span className="sm:pr-5.5">
           <Period position={position} />
@@ -118,7 +177,7 @@ function Position({ position }: { position: ExperiencePosition }) {
   }
 
   return (
-    <li>
+    <li className={treeBranch}>
       <Collapsible defaultOpen={position.isExpanded}>
         <CollapsibleTrigger className="group/pos -mx-2 flex w-[calc(100%+1rem)] flex-col gap-0.5 rounded-md px-2 py-1.5 text-left transition-colors hover:bg-accent2 sm:flex-row sm:items-baseline sm:justify-between sm:gap-4 boxy:rounded-sm">
           <PositionLabel position={position} />

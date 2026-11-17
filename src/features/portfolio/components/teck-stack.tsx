@@ -42,7 +42,6 @@ export function TeckStack() {
                           unoptimized
                         />
                         <Image
-                          // src={`https://assets.chanhdai.com/images/tech-stack-icons/${tech.key}-dark.svg`}
                           src={`icons/${tech.icon}`}
                           alt={`${tech.title} dark icon`}
                           width={32}
@@ -53,7 +52,6 @@ export function TeckStack() {
                       </>
                     ) : (
                       <Image
-                        // src={`https://assets.chanhdai.com/images/tech-stack-icons/python.svg`}
                         src={`/icons/${tech.icon}`}
                         alt={`${tech.title} icon`}
                         width={32}
@@ -62,7 +60,6 @@ export function TeckStack() {
                       />
                     )}
                     {/* <Image
-                      // src={`https://assets.chanhdai.com/images/tech-stack-icons/${tech.key}.svg`}
                       src={`/icons/${tech.icon}`}
                       alt={`${tech.title} icon`}
                       width={32}

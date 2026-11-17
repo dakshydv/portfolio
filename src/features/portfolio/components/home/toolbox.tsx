@@ -6,16 +6,36 @@ import type { TechStack } from "@/features/portfolio/types/tech-stack";
 import { Section } from "./section";
 
 const GROUPS: { label: string; keys: string[] }[] = [
-  { label: "languages", keys: ["typescript", "js", "go", "py"] },
+  { label: "languages", keys: ["typescript", "rust", "js", "go", "py"] },
   {
     label: "frontend",
-    keys: ["next", "react", "tailwindcss", "shadcn-ui", "motion"],
+    keys: [
+      "next",
+      "react",
+      "tailwindcss",
+      "shadcn-ui",
+      "zustand",
+      "zod",
+      "motion",
+    ],
   },
-  { label: "backend", keys: ["nodejs", "expressjs", "trpc", "fastapi", "bun"] },
+  {
+    label: "backend",
+    keys: ["nodejs", "axum", "tokio", "expressjs", "trpc", "fastapi", "bun"],
+  },
   { label: "data", keys: ["postgresql", "mongodb", "redis"] },
   {
     label: "infra & tools",
-    keys: ["docker", "aws", "vercel", "git", "postman", "chatgpt"],
+    keys: [
+      "docker",
+      "github-actions",
+      "cloudflare",
+      "aws",
+      "vercel",
+      "git",
+      "postman",
+      "chatgpt",
+    ],
   },
 ];
 
@@ -35,15 +55,15 @@ export function Toolbox() {
               key={group.label}
               className="grid gap-3 py-4 sm:grid-cols-[8rem_1fr] sm:items-center boxy:gap-0 boxy:py-0 boxy:sm:items-stretch"
             >
-              <dt className="font-mono text-[11px] tracking-[0.18em] text-muted-foreground uppercase boxy:flex boxy:items-center boxy:px-4 boxy:pt-3 boxy:sm:border-r boxy:sm:border-edge boxy:sm:py-3">
+              <dt className="font-mono text-[11px] tracking-[0.18em] text-muted-foreground uppercase boxy:flex boxy:items-center boxy:bg-muted/20 boxy:px-5 boxy:pt-4 boxy:max-sm:bg-transparent boxy:sm:border-r boxy:sm:border-edge boxy:sm:py-4">
                 {group.label}
               </dt>
-              <dd className="boxy:p-3 boxy:sm:px-4">
-                <ul className="flex flex-wrap gap-1.5">
+              <dd className="boxy:px-5 boxy:pt-2.5 boxy:pb-4 boxy:sm:py-4">
+                <ul className="flex flex-wrap gap-1.5 boxy:gap-x-5 boxy:gap-y-2.5">
                   {items.map((tech) => (
                     <li
                       key={tech.key}
-                      className="inline-flex items-center gap-1.5 rounded-md border border-edge bg-muted/40 py-1 pr-2 pl-1.5 text-sm transition-colors hover:border-foreground/20 boxy:rounded-sm"
+                      className="inline-flex items-center gap-1.5 rounded-md border border-edge bg-muted/40 py-1 pr-2 pl-1.5 text-sm transition-colors hover:border-foreground/20 boxy:border-0 boxy:bg-transparent boxy:p-0 boxy:text-muted-foreground boxy:hover:text-foreground"
                     >
                       <TechIcon tech={tech} />
                       {tech.title}
@@ -66,6 +86,17 @@ function TechIcon({ tech }: { tech: TechStack }) {
     unoptimized: true,
     className: "size-4 object-contain",
   };
+
+  if (!tech.icon) {
+    return (
+      <span
+        aria-hidden
+        className="flex size-4 items-center justify-center rounded-[3px] bg-foreground font-mono text-[9px] leading-none font-semibold text-background boxy:rounded-[1px]"
+      >
+        {tech.title.charAt(0).toUpperCase()}
+      </span>
+    );
+  }
 
   // For themed entries `darkIcon` is the variant drawn for light backgrounds.
   if (tech.theme && tech.darkIcon) {

@@ -20,8 +20,8 @@ export default function Page() {
 
       <div className="mx-auto max-w-2xl px-4 boxy:max-w-3xl boxy:border-x boxy:border-dashed boxy:border-edge boxy:px-0 boxy:pb-16 *:[[id]]:scroll-mt-14">
         <Hero />
-        <WorkHistory />
         <SelectedProjects />
+        <WorkHistory />
         <Toolbox />
         <Contact />
       </div>

@@ -15,9 +15,9 @@ const DESIGNS: { value: Design; label: string; icon: typeof NewspaperIcon }[] =
   ];
 
 function readDesign(): Design {
-  return document.documentElement.dataset.design === "boxy"
-    ? "boxy"
-    : "editorial";
+  return document.documentElement.dataset.design === "editorial"
+    ? "editorial"
+    : "boxy";
 }
 
 function subscribeDesign(onChange: () => void) {
@@ -48,7 +48,7 @@ export function DesignDock() {
   const design = useSyncExternalStore<Design>(
     subscribeDesign,
     readDesign,
-    () => "editorial"
+    () => "boxy"
   );
   const scrolled = useSyncExternalStore(
     subscribeScroll,

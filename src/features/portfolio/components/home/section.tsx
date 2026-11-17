@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils";
  * hairlines bleeding to the viewport edges, and crosshair marks on corners.
  */
 export const boxClass =
-  "boxy:mt-10 boxy:-mx-px boxy:border boxy:border-solid boxy:border-edge boxy:bg-background boxy:py-0 boxy:screen-line-before boxy:screen-line-after";
+  "group/box boxy:mt-12 boxy:-mx-px boxy:border boxy:border-solid boxy:border-edge boxy:bg-background boxy:py-0 boxy:screen-line-before boxy:screen-line-after";
 
 export function Corners() {
   return (
@@ -20,7 +20,7 @@ export function Corners() {
           key={position}
           viewBox="0 0 9 9"
           className={cn(
-            "absolute z-1 size-[9px] text-muted-foreground/70",
+            "absolute z-1 size-[9px] text-muted-foreground/60 transition-[color,rotate] duration-500 group-hover/box:rotate-90 group-hover/box:text-foreground",
             position
           )}
         >
@@ -88,13 +88,13 @@ export function Section({
       <SectionLabel index={index} label={label} />
 
       <div className="mb-8 flex items-end justify-between gap-4 boxy:mb-0 boxy:items-stretch boxy:gap-0 boxy:border-b boxy:border-edge">
-        <span className="hidden w-12 shrink-0 items-center justify-center border-r border-edge font-mono text-xs text-muted-foreground tabular-nums boxy:flex">
+        <span className="hidden w-14 shrink-0 items-center justify-center border-r border-edge bg-muted/30 font-mono text-xs text-muted-foreground tabular-nums transition-colors group-hover/box:text-foreground boxy:flex">
           {index}
         </span>
-        <h2 className="font-serif text-4xl leading-none tracking-tight sm:text-[2.75rem] boxy:flex-1 boxy:px-4 boxy:py-3 boxy:font-sans boxy:text-2xl boxy:font-semibold boxy:sm:text-2xl">
+        <h2 className="font-serif text-4xl leading-none tracking-tight sm:text-[2.75rem] boxy:flex-1 boxy:px-5 boxy:py-4 boxy:font-sans boxy:text-[1.375rem] boxy:leading-none boxy:font-medium boxy:tracking-tight boxy:sm:text-[1.375rem]">
           {title}
         </h2>
-        <div className="boxy:flex boxy:items-center boxy:px-4">
+        <div className="boxy:flex boxy:items-center boxy:px-5">
           {aside ?? (
             <span className="hidden font-mono text-[11px] tracking-[0.18em] text-muted-foreground uppercase boxy:inline">
               {label}

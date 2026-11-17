@@ -17,13 +17,14 @@ export const EXPERIENCES: Experience[] = [
         title: "Full Stack Developer",
         employmentPeriod: {
           start: "Jan 2026",
+          end: "Jun 2026",
         },
         employmentType: "Full-time",
         description: `
-- Build an AI-powered video editor from scratch, developing core timeline-based editing workflows and system architecture.
-- Develop AI-driven video editing features to automate transitions, scene detection, and smart edits.
-- Build and maintain backend services and video processing pipelines for media management and rendering.
-- Ensure UI/UX consistency, performance optimization, and scalable full stack solutions across the platform.
+- Built an AI-powered video editor from scratch, developing core timeline-based editing workflows and system architecture.
+- Developed AI-driven video editing features to automate transitions, scene detection, and smart edits.
+- Built and maintained backend services and video processing pipelines for media management and rendering.
+- Ensured UI/UX consistency, performance optimization, and scalable full stack solutions across the platform.
 `,
         icon: "code",
         skills: [
@@ -47,10 +48,10 @@ export const EXPERIENCES: Experience[] = [
         },
         employmentType: "Full-time",
         description: `
-- Working on the timeline filmstrip component for an AI-powered video editor.
-- Building intuitive, creator-friendly UI for users with zero video-editing experience.
-- Collaborating closely with founders and a small engineering team to ship core product features.
-- Implementing responsive and high-performance frontend components across the editor.
+- Worked on the timeline filmstrip component for an AI-powered video editor.
+- Built intuitive, creator-friendly UI for users with zero video-editing experience.
+- Collaborated closely with founders and a small engineering team to ship core product features.
+- Implemented responsive and high-performance frontend components across the editor.
 `,
         icon: "code",
         skills: [
@@ -69,11 +70,12 @@ export const EXPERIENCES: Experience[] = [
         isExpanded: false,
       },
     ],
-    isCurrentEmployer: true,
+    isCurrentEmployer: false,
   },
   {
     id: "freelance",
     companyName: "Freelance",
+    companyIcon: "code",
     positions: [
       {
         id: "f0becfba-057d-40db-b252-739e1654faa1",
@@ -129,6 +131,7 @@ export const EXPERIENCES: Experience[] = [
   {
     id: "education",
     companyName: "Education",
+    companyIcon: "education",
     positions: [
       {
         id: "e7b2a1d4-5c3f-4a89-bb12-8f1d45c90a1a",

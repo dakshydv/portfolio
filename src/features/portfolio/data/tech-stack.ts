@@ -2,6 +2,47 @@ import type { TechStack } from "../types/tech-stack";
 
 export const TECH_STACK: TechStack[] = [
   {
+    key: "rust",
+    title: "Rust",
+    icon: "rust.svg",
+    darkIcon: "rust-light.svg",
+    categories: ["Language"],
+    theme: true,
+  },
+  {
+    key: "zustand",
+    title: "Zustand",
+    categories: ["Library", "State Management"],
+  },
+  {
+    key: "zod",
+    title: "Zod",
+    icon: "zod.svg",
+    categories: ["Library", "Validation"],
+  },
+  {
+    key: "axum",
+    title: "Axum",
+    categories: ["Framework"],
+  },
+  {
+    key: "tokio",
+    title: "Tokio",
+    categories: ["Runtime"],
+  },
+  {
+    key: "github-actions",
+    title: "GitHub Actions",
+    icon: "githubactions.svg",
+    categories: ["CI/CD"],
+  },
+  {
+    key: "cloudflare",
+    title: "Cloudflare",
+    icon: "cloudflare.svg",
+    categories: ["Cloud Hosting"],
+  },
+  {
     key: "typescript",
     title: "TypeScript",
     icon: "typescript.svg",

@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 
 import { cn } from "@/lib/utils";
 
-const SECTIONS = ["work", "projects", "stack", "contact"] as const;
+const SECTIONS = ["projects", "work", "stack", "contact"] as const;
 
 /** Header anchors that highlight whichever section is currently in view. */
 export function SectionNav() {

@@ -5,7 +5,6 @@ import { USER } from "@/features/portfolio/data/user";
 import { cn } from "@/lib/utils";
 
 import { CopyEmailButton, EmailLink } from "./email-actions";
-import { LocalTime } from "./local-time";
 import { boxClass, Corners } from "./section";
 
 export function Contact() {
@@ -24,11 +23,17 @@ export function Contact() {
         contact
       </p>
 
-      <div className="boxy:p-6 boxy:sm:p-8">
+      <div className="boxy:relative boxy:overflow-hidden boxy:p-6 boxy:sm:p-10">
+        <span
+          aria-hidden
+          className="pointer-events-none absolute -right-2 -bottom-6 hidden font-mono text-[9rem] leading-none font-medium tracking-tighter text-edge select-none boxy:sm:block"
+        >
+          04
+        </span>
         <p className="mb-6 hidden font-mono text-[11px] tracking-[0.18em] text-muted-foreground uppercase boxy:block">
           04 / contact
         </p>
-        <h2 className="font-serif text-5xl leading-[0.95] tracking-tight sm:text-6xl boxy:font-sans boxy:text-4xl boxy:leading-[1.05] boxy:font-semibold boxy:sm:text-5xl">
+        <h2 className="font-serif text-5xl leading-[0.95] tracking-tight sm:text-6xl boxy:font-sans boxy:text-4xl boxy:leading-[1.02] boxy:font-medium boxy:tracking-tighter boxy:sm:text-6xl">
           Have something
           <br />
           <span className="text-muted-foreground italic boxy:not-italic">
@@ -49,9 +54,17 @@ export function Contact() {
         </div>
       </div>
 
-      <ul className="mt-10 grid grid-cols-2 gap-px overflow-hidden rounded-xl border border-edge bg-edge sm:grid-cols-4 boxy:mt-0 boxy:rounded-none boxy:border-x-0 boxy:border-b-0">
+      <ul
+        className={cn(
+          "mt-10 grid grid-cols-2 gap-px overflow-hidden rounded-xl border border-edge bg-edge boxy:mt-0 boxy:rounded-none boxy:border-x-0 boxy:border-b-0",
+          SOCIAL_LINKS.length % 4 === 0 ? "sm:grid-cols-4" : "sm:grid-cols-3"
+        )}
+      >
         {SOCIAL_LINKS.map((link) => (
-          <li key={link.href} className="bg-background">
+          <li
+            key={link.href}
+            className="bg-background max-sm:odd:last:col-span-2"
+          >
             <a
               href={link.href}
               target="_blank"
@@ -71,13 +84,9 @@ export function Contact() {
         ))}
       </ul>
 
-      <footer className="mt-16 flex flex-wrap items-center justify-between gap-2 font-mono text-[11px] text-muted-foreground boxy:mt-0 boxy:border-t boxy:border-edge boxy:px-4 boxy:py-3">
+      <footer className="mt-16 flex flex-wrap items-center justify-between gap-2 font-mono text-[11px] text-muted-foreground boxy:relative boxy:mt-0 boxy:border-t boxy:border-edge boxy:px-5 boxy:py-3.5">
         <span>
           © {new Date().getFullYear()} {USER.displayName}
-        </span>
-        <span>
-          {USER.address.split(",")[0].toLowerCase()} ·{" "}
-          <LocalTime timeZone={USER.timeZone} /> ist
         </span>
       </footer>
     </section>

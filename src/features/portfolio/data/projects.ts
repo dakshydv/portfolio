@@ -2,6 +2,15 @@ import type { Project } from "../types/projects";
 
 export const PROJECTS: Project[] = [
   {
+    id: "composite",
+    title: "Composite Studio",
+    liveLink: "https://composite.studio",
+    image: "/images/composite.png",
+    pinned: true,
+    skills: ["Rust", "TypeScript", "FFmpeg", "PostgreSQL", "TailwindCSS"],
+    description: `Composite is an AI video editor that helps you turn raw footage into finished videos. Just describe what you have in mind, and Composite takes care of the cutting, arranging, and polishing.`,
+  },
+  {
     id: "whiteboard-app",
     title: "Sketchly",
     period: {
@@ -11,7 +20,6 @@ export const PROJECTS: Project[] = [
     githubLink: "https://github.com/dakshydv/sketchly-nextjs.git",
     image: "/images/infinidraw.png",
     // video: "/videos/sketchly.mp4",
-    pinned: true,
     skills: ["Next.js", "Turborepo", "TailwindCSS", "Websockets", "PostgreSQL"],
     description: `A minimalist, collaborative whiteboard tool built with React and TypeScript, featuring real-time drawing, shapes, and text. Supports exporting sketches and offline functionality. Designed for simplicity and ease of use, inspired by Excalidraw.`,
     isExpanded: true,

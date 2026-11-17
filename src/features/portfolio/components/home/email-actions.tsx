@@ -59,9 +59,9 @@ export function CopyEmailButton({
       )}
     >
       {copied ? (
-        <CheckIcon className="size-3.5 text-success" aria-hidden />
+        <CheckIcon className="size-3 text-success" aria-hidden />
       ) : (
-        <CopyIcon className="size-3.5" aria-hidden />
+        <CopyIcon className="size-3" aria-hidden />
       )}
       <span aria-live="polite">{copied ? "copied" : "copy email"}</span>
     </button>

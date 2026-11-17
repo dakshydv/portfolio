@@ -30,6 +30,11 @@ export type Experience = {
   companyName?: string;
   /** URL to the company logo (absolute URL or path under /public). */
   companyLogo?: string;
+  /**
+   * Icon shown when there is no logo and initials would not read well
+   * (e.g. "Freelance", "Education"). Falls back to a monogram otherwise.
+   */
+  companyIcon?: ExperiencePositionIcon;
   /** Roles held at this company; keep newest first for display. */
   positions?: ExperiencePosition[];
   /** Marks the company as the current employer for highlighting. */

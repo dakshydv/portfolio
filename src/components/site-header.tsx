@@ -19,9 +19,18 @@ export function SiteHeader() {
         <Link
           href="/"
           aria-label="Home"
-          className="flex size-7 items-center justify-center rounded-md bg-foreground font-mono text-[11px] font-semibold tracking-tight text-background transition-transform hover:-rotate-6 boxy:rounded-sm"
+          className="group/mark flex items-center"
         >
-          dy
+          <span
+            aria-hidden
+            className={cn(
+              "relative flex size-8 items-center justify-center border border-edge font-mono text-[10px] font-medium tracking-[0.12em] text-foreground/85 transition-colors group-hover/mark:text-foreground",
+              "before:absolute before:-top-px before:-left-px before:size-2 before:border-t before:border-l before:border-foreground before:transition-all before:duration-300 group-hover/mark:before:size-[calc(100%+2px)]",
+              "after:absolute after:-right-px after:-bottom-px after:size-2 after:border-r after:border-b after:border-foreground after:transition-all after:duration-300 group-hover/mark:after:size-[calc(100%+2px)]"
+            )}
+          >
+            DY
+          </span>
         </Link>
 
         <nav className="flex items-center gap-0.5 sm:gap-1">
@@ -30,11 +39,6 @@ export function SiteHeader() {
           <ThemeToggle />
         </nav>
       </div>
-
-      <div
-        aria-hidden
-        className="absolute inset-x-0 -bottom-px h-px scroll-progress bg-foreground/60"
-      />
     </SiteHeaderWrapper>
   );
 }

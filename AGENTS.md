@@ -1,322 +1,87 @@
-# AI Agent Guidelines for chanhdai.com
+# AI Agent Guidelines for dakshyadav.com
 
-This guide provides essential information for AI agents working with the chanhdai.com codebase - a Next.js dev portfolio, blog, and component registry website.
+Essential context for AI agents working on this codebase: the personal portfolio of Daksh Yadav, a Full Stack Developer.
 
 ## Project Overview
 
-**chanhdai.com** is a minimal, pixel-perfect dev portfolio, component registry, and blog built with modern web technologies. It serves as:
-
-- Personal portfolio for Nguyen Chanh Dai (@ncdai)
-- Component registry using shadcn/ui system
-- Blog with MDX content
-- Showcase for custom React components
+A single-page developer portfolio aimed at recruiters and hiring managers. It presents current work, shipped projects, work history, tech stack and contact links.
 
 ### Key Features
 
-- **Clean & modern design** - Minimalist interface with attention to detail
-- **Light/Dark themes** - Seamless theme switching with system preference support
-- **vCard integration** - Downloadable contact card
-- **SEO optimized** - JSON-LD schema, sitemap, robots.txt
-- **AI-ready** - Supports /llms.txt for AI agent accessibility
-- **Spam-protected email** - Encoded contact information
-- **PWA support** - Installable as Progressive Web App
-- **Blog system** - MDX/Markdown support with syntax highlighting, dynamic OG images, RSS feed
-- **Component registry** - Reusable components distributed via shadcn CLI
+- **Two layouts from one set of components**: "editorial" and "boxy", switched via a `data-design` attribute on `<html>`. Boxy is the default; the switcher (`src/components/design-dock.tsx`) is currently hidden.
+- **Light/dark themes** with system preference support
+- **SEO**: JSON-LD schema, sitemap, robots.txt, Open Graph image
+- **Spam-protected contact details**: email and phone are stored base64-encoded and decoded on the client
+- **PWA manifest**
 
 ### Tech Stack
 
-- **Framework**: Next.js 16 (App Router)
+- **Framework**: Next.js 16 (App Router, Turbopack)
 - **Styling**: Tailwind CSS v4
-- **UI Components**: shadcn/ui + custom components
-- **Package Manager**: pnpm
-- **Language**: TypeScript
-- **Content**: MDX for blog posts
+- **UI**: shadcn/ui primitives + custom components
+- **Language**: TypeScript (strict)
+- **Package manager**: pnpm
 - **Deployment**: Vercel
 
 ## Project Structure
 
-### Key Directories
-
 ```
 src/
-├── app/                    # Next.js App Router pages
-│   ├── (app)/             # Main app routes
-│   ├── (llms)/            # LLM-related routes
-│   ├── og/                # Open Graph image generation
-│   └── rss/               # RSS feed generation
-├── components/            # Shared UI components
-├── registry/              # Component registry source
-├── __registry__/          # Auto-generated registry files (DO NOT EDIT)
-├── features/              # Feature-based modules
-│   ├── blog/              # Blog functionality
-│   └── portfolio/         # User portfolio data
-├── hooks/                 # Custom React hooks
-├── lib/                   # Utility libraries
-└── styles/                # Global styles
-packages/
-└── ncdai/                 # Publishable component package
+├── app/
+│   ├── (app)/(root)/page.tsx   # Homepage
+│   ├── (app)/layout.tsx        # Header, scroll-to-top
+│   ├── og/                     # Page used to capture the Open Graph image
+│   ├── layout.tsx              # Root layout, fonts, theme + design scripts
+│   ├── manifest.ts, sitemap.ts, robots.ts
+├── components/                 # Shared UI (header, section nav, theme toggle, ui/)
+├── features/portfolio/
+│   ├── components/home/        # Homepage sections (hero, projects, work, stack, contact)
+│   ├── data/                   # All portfolio content
+│   └── types/
+├── hooks/
+├── lib/
+└── styles/globals.css          # Theme tokens, `boxy:` variant, utilities
 ```
 
-### Important Files
+## Editing Content
 
-- `src/config/site.ts` - Site configuration and navigation
-- `src/config/registry.ts` - Registry configuration
-- `src/features/portfolio/data/user.ts` - User portfolio data
-- `src/registry/index.ts` - Registry entry point
-- `components.json` - shadcn/ui configuration
+All content lives in `src/features/portfolio/data/`:
 
-## Component Registry System
+- `user.ts`: name, job title, intro (Markdown), current jobs, encoded contact details
+- `projects.ts`: projects; set `pinned: true` on one to feature it, omit `githubLink` for private repos
+- `experiences.ts`: work history and education; `companyLogo` or `companyIcon`, otherwise a monogram is shown
+- `tech-stack.ts`: technologies; grouping on the page is defined in `components/home/toolbox.tsx`
+- `social-links.ts`: profile links shown in the hero and contact section
 
-The project features a custom component registry built on top of shadcn/ui:
+Images go in `public/images/`, icons in `public/icons/`.
 
-### Registry Structure
+## Design System Notes
 
-- **Components** (`src/registry/registry-components.ts`) - UI components
-- **Hooks** (`src/registry/registry-hook.ts`) - Custom React hooks
-- **Blocks** (`src/registry/registry-blocks.ts`) - Pre-built blocks and sections
-- **Examples** (`src/registry/registry-examples.ts`) - Component demos
-- **Lib** (`src/registry/registry-lib.ts`) - Utility functions
+- Colors are zinc-based CSS variables in `globals.css`; always support both themes.
+- Boxy-only styles use the `boxy:` variant (e.g. `boxy:border-x`). Keep editorial styles as the base classes so both layouts keep working.
+- Section wrappers come from `components/home/section.tsx` (`Section`, `boxClass`, `Corners`).
 
-### Registry Types
+## Coding Guidelines
 
-- `registry:component` - Reusable UI components
-- `registry:hook` - Custom React hooks
-- `registry:block` - Pre-built blocks and sections
-- `registry:example` - Component examples/demos
-- `registry:lib` - Utility libraries
+- Write type-safe TypeScript; explicit types where they help.
+- Comment the "why", not the "what"; no obvious comments.
+- No emojis in code, comments or commit messages.
+- Kebab-case file names, PascalCase components.
+- Keep functions small and names descriptive.
 
-### Available Components
-
-1. **theme-switcher** - Theme switching component
-2. **flip-sentences** - Text animation component
-3. **apple-hello-effect** - Apple-style writing effect
-4. **wheel-picker** - iOS-like wheel picker
-5. **work-experience** - Work experience display
-6. **shimmering-text** - Shimmering text animation
-7. **slide-to-unlock** - iOS-style slide to unlock component
-8. **github-stars** - GitHub repository stars display component
-9. **use-controllable-state** - State management hook
-10. **use-sound** - Sound effects hook
-11. **utils** - Utility functions
-
-> **Note**: All components are compatible with [Tailwind CSS v4](https://tailwindcss.com/blog/tailwindcss-v4) and [React 19](https://react.dev/blog/2024/12/05/react-19).
-
-### Registry Build Process
+## Development
 
 ```bash
-# Build registry internally
-pnpm registry:internal:build
-
-# Build shadcn registry
-pnpm registry:build
-```
-
-Auto-generated files (DO NOT EDIT):
-
-- `src/__registry__/index.tsx`
-- `src/__registry__/registry.autogenerated.json`
-- `public/r/*.json`
-
-## Development Guidelines
-
-### Getting Started
-
-```bash
-# Install dependencies
 pnpm install
-
-# Start development server
-pnpm dev  # Runs on port 1408
-
-# Build for production
+pnpm dev            # http://localhost:3000
 pnpm build
+pnpm lint
+pnpm check-types
+pnpm format:write
 ```
 
-### Code Standards
+If CSS changes stop appearing in dev, restart with `rm -rf .next/dev && pnpm dev`.
 
-- **TypeScript**: Strict mode enabled
-- **ESLint**: Next.js configuration
-- **Prettier**: Code formatting
-- **File naming**: kebab-case for files, PascalCase for components
+## Attribution
 
-### Coding Guidelines
-
-When writing code for this project, follow these principles:
-
-**TypeScript & Documentation**
-
-- Write type-safe TypeScript code with explicit types when necessary
-- Add comments only when they clarify complex logic, function purpose, or non-obvious behavior
-- Avoid obvious comments that merely restate the code
-- Use descriptive variable and function names that make the code self-documenting
-- Keep comments concise and focused on the "why" rather than the "what"
-
-**Code Style**
-
-- No emojis in code, comments, or commit messages
-- Write clean, readable code that minimizes the need for extensive documentation
-- Prefer self-explanatory code over commented code
-- Use JSDoc for public APIs and exported functions when the signature alone isn't clear
-
-**Best Practices**
-
-- Follow SOLID principles and clean code practices
-- Keep functions small and focused on a single responsibility
-- Use meaningful names that reveal intent
-- Write code that is easy to understand at first glance
-- Avoid over-commenting; let the code speak for itself
-
-### Component Development
-
-1. Create component in `src/registry/[component-name]/`
-2. Add to appropriate registry file (`registry-components.ts`, etc.)
-3. Create examples in `src/registry/examples/`
-4. Run registry build commands
-5. Update documentation
-
-## Working with Content
-
-### Blog Posts
-
-- Location: `src/features/blog/content/`
-- Format: MDX files
-- Supports: Custom components, code blocks, metadata
-
-### User Portfolio
-
-**Portfolio Data Files** (`src/features/portfolio/data/`):
-
-- `user.ts` - Core personal information, bio, contact details, job history
-- `experiences.ts` - Detailed work experience, education, company information
-- `projects.ts` - Portfolio projects with descriptions, links, skills, logos
-- `tech-stack.ts` - Technology stack, programming languages, tools, frameworks
-- `awards.ts` - Competition awards, prizes, academic achievements, certificates
-- `certifications.ts` - Professional certifications, course completions, credentials
-- `social-links.ts` - Social media profiles, professional networks, contact links
-- `testimonials.ts` - Professional recommendations, endorsements from colleagues and clients
-
-## Environment & Configuration
-
-### Environment Variables
-
-See `.env.example` for required variables:
-
-**Core Application**:
-
-- `APP_URL` - Application base URL (e.g., `https://acme.com`)
-
-**Registry Configuration**:
-
-- `REGISTRY_NAMESPACE` - Namespace identifier for shadcn CLI (e.g., `@acme`)
-- `REGISTRY_NAMESPACE_URL` - URL pattern for component resolution (e.g., `https://acme.com/r/{name}.json`)
-
-**External Services**:
-
-- `GITHUB_API_TOKEN` - GitHub Personal Access Token for API calls ([Get token](https://github.com/settings/tokens))
-- `NEXT_PUBLIC_DMCA_URL` - DMCA Protection badge URL ([DMCA ProtectionPro](https://www.dmca.com/ProtectionPro.aspx))
-
-### Site Configuration
-
-- Navigation: `MAIN_NAV` in `src/config/site.ts`
-- Theme colors: `META_THEME_COLORS`
-- GitHub repo: `SOURCE_CODE_GITHUB_REPO`
-
-## Common Tasks
-
-### Adding a New Component
-
-1. Create component directory: `src/registry/[name]/`
-2. Implement component with proper TypeScript types
-3. Add to `src/registry/registry-components.ts`
-4. Create example in `src/registry/examples/`
-5. Build registry: `pnpm registry:build`
-
-### Updating User Information
-
-Edit `src/features/portfolio/data/user.ts` with new:
-
-- Personal information
-- Job details
-- Project descriptions
-- Contact information
-
-### Adding Blog Posts
-
-1. Create MDX file in `src/features/blog/content/`
-2. Include frontmatter metadata
-3. Use custom components for enhanced content
-
-### Styling Guidelines
-
-- Use Tailwind CSS v4 syntax
-- Follow existing color scheme (zinc-based)
-- Support dark/light modes
-- Use CSS variables for theme colors
-
-## Important Notes
-
-### Registry Dependencies
-
-- Components may depend on external packages
-
-### Auto-generated Files
-
-**NEVER EDIT** these files directly:
-
-- `src/__registry__/index.tsx`
-- `src/__registry__/registry.autogenerated.json`
-- Files in `public/r/`
-
-### Performance Considerations
-
-- Components use React.lazy() for code splitting
-- Images optimized with Next.js Image component
-- MDX content is statically generated
-
-### Personal Information
-
-When adapting this codebase, ensure ALL personal information is replaced:
-
-**Key Areas to Update**:
-
-- All files in `src/features/portfolio/data/` (see User Portfolio section above)
-- `src/config/site.ts` - Site name, navigation, GitHub repo, UTM params
-- Blog posts in `src/features/blog/content/`
-- Asset URLs (images, logos, audio files) throughout the codebase
-
-**Important**: Portfolio data contains encoded contact information (base64) and specific asset URLs that must be updated for your own use.
-
-## Deployment
-
-### Vercel Deployment
-
-- Automatic deployment from GitHub
-- Environment variables configured in Vercel dashboard
-- Build command: `pnpm build`
-- Output directory: `.next`
-
-### Build Commands
-
-```bash
-pnpm build          # Production build
-pnpm start          # Start production server
-pnpm preview        # Build and preview locally
-```
-
-## Contributing
-
-### Code Quality
-
-- Run `pnpm lint` before committing
-- Use `pnpm format:write` for code formatting
-- Check types with `pnpm check-types`
-
-### Testing Registry Components
-
-- Test components in isolation
-- Verify registry build process
-- Test installation via shadcn CLI
-
----
-
-**Note**: This is a personal portfolio project. When using as a template, ensure all personal information is removed and replaced with your own content.
+This project began as a fork of an MIT-licensed portfolio. The original copyright notice must stay in `LICENSE`.

@@ -14,7 +14,8 @@ export type TechStack = {
   title: string;
   /** Category tags used for grouping/filtering. */
   categories: string[];
-  icon: string;
+  /** File in /public/icons; omit to show a monogram instead. */
+  icon?: string;
   darkIcon?: string;
   /** If true, use theme-specific icons for dark/light mode. */
   theme?: boolean;

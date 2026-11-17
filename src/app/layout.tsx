@@ -29,8 +29,10 @@ const darkModeScript = String.raw`
   } catch (_) {}
 
   try {
-    var design = localStorage.getItem('design');
-    document.documentElement.dataset.design = design === 'boxy' ? 'boxy' : 'editorial';
+    // Design switcher is hidden for now, so always use boxy.
+    // var design = localStorage.getItem('design');
+    // document.documentElement.dataset.design = design === 'editorial' ? 'editorial' : 'boxy';
+    document.documentElement.dataset.design = 'boxy';
   } catch (_) {}
 
   try {
@@ -103,7 +105,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      data-design="editorial"
+      data-design="boxy"
       className={`${fontSans.variable} ${fontMono.variable} ${fontSerif.variable}`}
       suppressHydrationWarning
     >

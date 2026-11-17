@@ -14,7 +14,8 @@ export type Project = {
   };
   /** Public URL (site, repository, demo, or video). */
   liveLink?: string;
-  githubLink: string;
+  /** Source repository; omit for private projects. */
+  githubLink?: string;
   image?: string;
   video?: string;
   pinned?: boolean;

@@ -5,8 +5,9 @@ import { SOCIAL_LINKS } from "@/features/portfolio/data/social-links";
 import { USER } from "@/features/portfolio/data/user";
 import { cn } from "@/lib/utils";
 
+import { brandIconFor } from "./brand-icons";
 import { CopyEmailButton } from "./email-actions";
-import { LocalTime } from "./local-time";
+// import { GitHubActivity } from "./github-activity";
 import { boxClass, Corners } from "./section";
 
 const SHORT_LABELS: Record<string, string> = {
@@ -14,7 +15,7 @@ const SHORT_LABELS: Record<string, string> = {
 };
 
 const pill =
-  "inline-flex h-8 items-center gap-1 rounded-full font-mono text-xs transition-colors boxy:rounded-sm";
+  "inline-flex h-8 items-center gap-1.5 rounded-full border px-3 font-mono text-xs transition-colors boxy:rounded-sm";
 
 export function Hero() {
   const [current] = USER.jobs;
@@ -43,7 +44,7 @@ export function Hero() {
 
       <div
         style={{ animationDelay: "0ms" }}
-        className="mb-8 flex items-center justify-between gap-4 motion-safe:animate-rise boxy:mb-0 boxy:border-b boxy:border-edge boxy:px-4 boxy:py-2.5"
+        className="mb-8 flex items-center justify-between gap-4 motion-safe:animate-rise boxy:mb-0 boxy:border-b boxy:border-edge boxy:px-5 boxy:py-3"
       >
         {current && (
           <a
@@ -56,7 +57,7 @@ export function Hero() {
               <span className="absolute inline-flex size-full animate-ping rounded-full bg-success opacity-40" />
               <span className="relative inline-flex size-2 rounded-full bg-success" />
             </span>
-            {current.title.toLowerCase()} {current.company}
+            {current.title} {current.company}
             <ArrowUpRightIcon className="size-3 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </a>
         )}
@@ -69,7 +70,7 @@ export function Hero() {
         style={{ animationDelay: "80ms" }}
         className="flex items-end gap-5 motion-safe:animate-rise boxy:items-stretch boxy:gap-0"
       >
-        <div className="shrink-0 boxy:border-r boxy:border-edge boxy:p-1.5">
+        <div className="shrink-0 boxy:border-r boxy:border-edge boxy:bg-muted/20 boxy:p-2">
           <img
             src="/images/profile.jpeg"
             alt={`${USER.displayName}'s portrait`}
@@ -82,17 +83,15 @@ export function Hero() {
         </div>
 
         <div className="min-w-0 pb-1 boxy:flex boxy:flex-1 boxy:flex-col boxy:justify-end boxy:pb-0">
-          <p className="hidden flex-1 items-end justify-end px-4 pb-2 font-mono text-[11px] text-muted-foreground/70 select-none boxy:flex">
-            @{USER.username}
-          </p>
-          <h1 className="font-serif text-5xl leading-[0.9] tracking-tight sm:text-6xl boxy:border-t boxy:border-edge boxy:px-4 boxy:py-2 boxy:font-sans boxy:text-3xl boxy:leading-tight boxy:font-semibold boxy:sm:text-4xl">
+          <div aria-hidden className="hidden flex-1 boxy:block" />
+          <h1 className="font-serif text-5xl leading-[0.9] tracking-tight sm:text-6xl boxy:border-t boxy:border-edge boxy:px-5 boxy:py-3 boxy:font-sans boxy:text-4xl boxy:leading-none boxy:font-medium boxy:tracking-tighter boxy:sm:text-5xl">
             {USER.firstName}{" "}
             <span className="text-muted-foreground italic boxy:text-foreground boxy:not-italic">
               {USER.lastName}
             </span>
           </h1>
-          <p className="mt-2 font-mono text-xs text-muted-foreground sm:text-sm boxy:mt-0 boxy:border-t boxy:border-edge boxy:px-4 boxy:py-2">
-            {USER.jobTitle.toLowerCase()}
+          <p className="mt-2 font-mono text-xs text-muted-foreground sm:text-sm boxy:mt-0 boxy:border-t boxy:border-edge boxy:px-5 boxy:py-2.5">
+            {USER.jobTitle}
           </p>
         </div>
       </div>
@@ -102,7 +101,9 @@ export function Hero() {
         className={cn(
           "mt-8 max-w-xl text-[1.0625rem] leading-relaxed text-pretty text-muted-foreground motion-safe:animate-rise",
           "[&_strong]:font-medium [&_strong]:text-foreground",
-          "boxy:mt-0 boxy:max-w-none boxy:border-t boxy:border-edge boxy:p-4 boxy:text-base"
+          "[&_a]:underline [&_a]:decoration-muted-foreground/40 [&_a]:underline-offset-4 [&_a]:transition-colors [&_a:hover]:decoration-foreground",
+          "[&_li]:relative [&_li]:pl-5 [&_li]:before:absolute [&_li]:before:top-[0.7em] [&_li]:before:left-1 [&_li]:before:size-1.5 [&_li]:before:rounded-full [&_li]:before:bg-muted-foreground/40 boxy:[&_li]:before:rounded-none [&_li+li]:mt-2",
+          "boxy:mt-0 boxy:max-w-none boxy:border-t boxy:border-edge boxy:p-5 boxy:text-base"
         )}
       >
         <Markdown>{USER.intro}</Markdown>
@@ -110,7 +111,7 @@ export function Hero() {
 
       <div
         style={{ animationDelay: "240ms" }}
-        className="mt-8 flex flex-wrap gap-2 motion-safe:animate-rise boxy:mt-0 boxy:border-t boxy:border-edge boxy:p-4"
+        className="mt-8 flex flex-wrap gap-2 motion-safe:animate-rise boxy:mt-0 boxy:border-t boxy:border-edge boxy:px-5 boxy:py-4"
       >
         {resume && (
           <a
@@ -119,66 +120,45 @@ export function Hero() {
             rel="noopener"
             className={cn(
               pill,
-              "gap-1.5 bg-foreground px-3.5 text-background hover:opacity-85"
+              "border-foreground bg-foreground text-background hover:opacity-85"
             )}
           >
             resume
-            <ArrowUpRightIcon className="size-3.5" aria-hidden />
-          </a>
-        )}
-        {profiles.map((link) => (
-          <a
-            key={link.href}
-            href={link.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={cn(
-              pill,
-              "border border-edge px-3 text-muted-foreground hover:border-foreground/30 hover:text-foreground"
-            )}
-          >
-            {(SHORT_LABELS[link.title] ?? link.title).toLowerCase()}
             <ArrowUpRightIcon className="size-3" aria-hidden />
           </a>
-        ))}
+        )}
+        {profiles.map((link) => {
+          const Icon = brandIconFor(link.href);
+          const platform = SHORT_LABELS[link.title] ?? link.title;
+
+          return (
+            <a
+              key={link.href}
+              href={link.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`${platform}: ${link.description}`}
+              className={cn(
+                pill,
+                "border-edge text-muted-foreground hover:border-foreground/30 hover:text-foreground"
+              )}
+            >
+              {Icon && <Icon className="size-3" />}
+              {link.description ?? platform.toLowerCase()}
+            </a>
+          );
+        })}
         <CopyEmailButton email={USER.email} />
       </div>
 
-      <dl
+      {/* Live GitHub activity panel, hidden for now.
+      <div
         style={{ animationDelay: "320ms" }}
-        className={cn(
-          "mt-12 grid grid-cols-2 gap-px overflow-hidden rounded-xl border border-edge bg-edge motion-safe:animate-rise sm:grid-cols-3",
-          "boxy:mt-0 boxy:rounded-none boxy:border-x-0 boxy:border-b-0"
-        )}
+        className="motion-safe:animate-rise"
       >
-        <Fact label="based in">{USER.address}</Fact>
-        <Fact label="local time">
-          <LocalTime timeZone={USER.timeZone} />
-          <span className="text-muted-foreground"> IST</span>
-        </Fact>
-        <Fact label="studying" className="col-span-2 sm:col-span-1">
-          CS @ BITS Pilani
-        </Fact>
-      </dl>
+        <GitHubActivity />
+      </div>
+      */}
     </header>
-  );
-}
-
-function Fact({
-  label,
-  className,
-  children,
-}: {
-  label: string;
-  className?: string;
-  children: React.ReactNode;
-}) {
-  return (
-    <div className={cn("bg-background px-4 py-3", className)}>
-      <dt className="font-mono text-[10px] tracking-[0.18em] text-muted-foreground uppercase">
-        {label}
-      </dt>
-      <dd className="mt-1 truncate text-sm">{children}</dd>
-    </div>
   );
 }

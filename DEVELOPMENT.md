@@ -1,12 +1,10 @@
 # Development
 
-This guide provides instructions on how to set up and run the project locally.
+How to set up and run the project locally.
 
 ## Prerequisites
 
-Ensure you have the following installed:
-
-- [Node.js](https://nodejs.org/) (Latest LTS version recommended)
+- [Node.js](https://nodejs.org/) (latest LTS recommended)
 - [pnpm](https://pnpm.io/)
 - [Git](https://git-scm.com/)
 
@@ -15,8 +13,8 @@ Ensure you have the following installed:
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/ncdai/chanhdai.com.git minimal-dev-portfolio
-cd minimal-dev-portfolio
+git clone https://github.com/dakshydv/portfolio.git
+cd portfolio
 ```
 
 ### 2. Install dependencies
@@ -25,58 +23,31 @@ cd minimal-dev-portfolio
 pnpm i
 ```
 
-### 3. Configure Environment Variables
-
-Create a `.env.local` file based on `.env.example`:
-
-```bash
-cp .env.example .env.local
-```
-
-Then, update the necessary environment variables inside `.env.local`.
-
-### 4. Run the development server
+### 3. Run the development server
 
 ```bash
 pnpm dev
 ```
 
-The application should now be available at http://localhost:1408
+The site is now available at http://localhost:3000.
 
-## Building for Production
+If styles stop updating while the dev server is running, stop it, clear the dev cache and start again:
+
+```bash
+rm -rf .next/dev && pnpm dev
+```
+
+## Building for production
 
 ```bash
 pnpm build
-```
-
-After building, start the application with:
-
-```bash
 NODE_ENV=production pnpm start
 ```
 
-## Registry
-
-This project utilizes **shadcn Registry**, which allows you to manage and distribute custom components, hooks, pages, and other files across multiple React projects. By hosting a registry, you can reuse UI components easily without manually copying code between projects.
-
-### Using Registry in other React projects
-
-If you're working on a different React project and want to reuse the custom components from this repository, visit [chanhdai.com/components](https://chanhdai.com/components) for installation instructions and component documentation.
-
-> Note: These components are compatible with [Tailwind CSS v4](https://tailwindcss.com/blog/tailwindcss-v4) and [React 19](https://react.dev/blog/2024/12/05/react-19).
-
-### Registry configuration
-
-Documentation: [shadcn Registry Docs](https://ui.shadcn.com/docs/registry)
-
-Source files:
-
-- `./src/registry`
-
-Before using the registry, run the following command to build and generate the registry JSON files:
+## Quality checks
 
 ```bash
-pnpm registry:build
+pnpm lint
+pnpm check-types
+pnpm format:write
 ```
-
-When running the `npx shadcn add <registry-url>` command, the selected component will be automatically downloaded and integrated into your project.
