@@ -41,6 +41,7 @@ export const USER: User = {
 
   // Let's connect and collaborate!
   //   `,
+  intro: `I build web applications that actually work. Right now I'm a **Full Stack Developer at Craon AI**, shaping an AI-powered video editor, and building **Sketchly**, a collaborative whiteboard, on the side. Most days that means **Next.js, TypeScript, Go and Postgres**.`,
   about: `
 - I build Web Applications that actually work
 - Skilled in **Next.js**, **React**, **TypeScript**, **Golang**, **tRPC**, and modern full-stack technologies, building production-ready solutions for difference domains.

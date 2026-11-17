@@ -1,6 +1,7 @@
 import {
   IBM_Plex_Mono as FontMono,
   IBM_Plex_Sans as FontSans,
+  Instrument_Serif as FontSerif,
 } from "next/font/google";
 
 export const fontSans = FontSans({
@@ -15,4 +16,12 @@ export const fontMono = FontMono({
   display: "swap",
   subsets: ["latin"],
   variable: "--font-mono",
+});
+
+export const fontSerif = FontSerif({
+  weight: "400",
+  style: ["normal", "italic"],
+  display: "swap",
+  subsets: ["latin"],
+  variable: "--font-serif",
 });

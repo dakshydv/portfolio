@@ -28,6 +28,8 @@ export type User = {
     company?: string;
     website?: string;
   }[];
+  /** One-paragraph introduction for the hero; supports Markdown */
+  intro: string;
   /** Rich about section; supports Markdown */
   about: string;
   /** Public URL to avatar image */

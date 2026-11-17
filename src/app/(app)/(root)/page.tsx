@@ -1,16 +1,12 @@
 import dayjs from "dayjs";
 import type { ProfilePage as PageSchema, WithContext } from "schema-dts";
 
-import { OpenSourceContributions } from "@/components/OpenSourceContributions";
-import { About } from "@/features/portfolio/components/about";
-import { Experiences } from "@/features/portfolio/components/experiences";
-import { Overview } from "@/features/portfolio/components/overview";
-import { ProfileHeader } from "@/features/portfolio/components/profile-header";
-import { Projects } from "@/features/portfolio/components/projects";
-import { SocialLinks } from "@/features/portfolio/components/social-links";
-import { TeckStack } from "@/features/portfolio/components/teck-stack";
+import { Contact } from "@/features/portfolio/components/home/contact";
+import { Hero } from "@/features/portfolio/components/home/hero";
+import { SelectedProjects } from "@/features/portfolio/components/home/selected-projects";
+import { Toolbox } from "@/features/portfolio/components/home/toolbox";
+import { WorkHistory } from "@/features/portfolio/components/home/work-history";
 import { USER } from "@/features/portfolio/data/user";
-import { cn } from "@/lib/utils";
 
 export default function Page() {
   return (
@@ -22,40 +18,12 @@ export default function Page() {
         }}
       />
 
-      <div className="mx-auto md:max-w-3xl *:[[id]]:scroll-mt-22">
-        {/* <ProfileCover /> */}
-        <ProfileHeader />
-        <Separator />
-
-        <Overview />
-        <Separator />
-
-        <SocialLinks />
-        <Separator />
-
-        <About />
-        <Separator />
-
-        <Projects />
-        <Separator />
-
-        {/* <OpenSourceContributions />
-        <Separator /> */}
-
-        <TeckStack />
-        <Separator />
-
-        <Experiences />
-        <Separator />
-
-        {/* <GitHubContributions />
-        <Separator /> */}
-
-        {/* <TestimonialsMarquee />
-        <Separator /> */}
-
-        {/* <Blog />
-        <Separator /> */}
+      <div className="mx-auto max-w-2xl px-4 boxy:max-w-3xl boxy:border-x boxy:border-dashed boxy:border-edge boxy:px-0 boxy:pb-16 *:[[id]]:scroll-mt-14">
+        <Hero />
+        <WorkHistory />
+        <SelectedProjects />
+        <Toolbox />
+        <Contact />
       </div>
     </>
   );
@@ -74,17 +42,4 @@ function getPageJsonLd(): WithContext<PageSchema> {
       image: USER.avatar,
     },
   };
-}
-
-function Separator({ className }: { className?: string }) {
-  return (
-    <div
-      className={cn(
-        "relative flex h-8 w-full border-x border-edge",
-        "before:absolute before:-left-[100vw] before:-z-1 before:h-8 before:w-[200vw]",
-        "before:bg-[repeating-linear-gradient(315deg,var(--pattern-foreground)_0,var(--pattern-foreground)_1px,transparent_0,transparent_50%)] before:bg-size-[10px_10px] before:[--pattern-foreground:var(--color-edge)]/56",
-        className
-      )}
-    />
-  );
 }

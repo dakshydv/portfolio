@@ -1,60 +1,40 @@
-import dynamic from "next/dynamic";
+import Link from "next/link";
 
-import { DesktopNav } from "@/components/desktop-nav";
-import { NavItemGitHub } from "@/components/nav-item-github";
-import { MAIN_NAV } from "@/config/site";
-import { getAllPosts } from "@/features/blog/data/posts";
 import { cn } from "@/lib/utils";
 
+import { SectionNav } from "./section-nav";
 import { SiteHeaderWrapper } from "./site-header-wrapper";
 import { ThemeToggle } from "./theme-toggle";
 
-const BrandContextMenu = dynamic(() =>
-  import("@/components/brand-context-menu").then((mod) => mod.BrandContextMenu)
-);
-
-const CommandMenu = dynamic(() =>
-  import("@/components/command-menu").then((mod) => mod.CommandMenu)
-);
-
-const MobileNav = dynamic(() =>
-  import("@/components/mobile-nav").then((mod) => mod.MobileNav)
-);
-
 export function SiteHeader() {
-  const posts = getAllPosts();
-
   return (
     <SiteHeaderWrapper
       className={cn(
-        "sticky top-0 z-50 max-w-screen overflow-x-hidden bg-background px-2 pt-2",
-        "data-[affix=true]:shadow-[0_0_16px_0_black]/8 dark:data-[affix=true]:shadow-[0_0_16px_0_black]",
-        "not-dark:data-[affix=true]:**:data-header-container:after:bg-border",
-        "transition-shadow duration-300"
+        "group/header sticky top-0 z-50 border-b border-transparent bg-background/80 backdrop-blur-md",
+        "transition-colors duration-300 data-[affix=true]:border-edge",
+        "boxy:border-edge boxy:bg-background/90 boxy:px-3"
       )}
     >
-      <div
-        className="screen-line-before screen-line-after mx-auto flex h-12 items-center justify-between gap-2 border-x border-edge px-2 after:z-1 after:transition-[background-color] sm:gap-4 md:max-w-3xl"
-        data-header-container
-      >
-        {/* <BrandContextMenu>
-          <Link href="/" aria-label="Home" className="[&_svg]:h-8">
-            <SiteHeaderMark />
-          </Link>
-        </BrandContextMenu> */}
+      <div className="mx-auto flex h-14 max-w-2xl items-center justify-between gap-4 px-4 boxy:h-12 boxy:max-w-3xl boxy:border-x boxy:border-edge boxy:pr-2 boxy:pl-3">
+        <Link
+          href="/"
+          aria-label="Home"
+          className="flex size-7 items-center justify-center rounded-md bg-foreground font-mono text-[11px] font-semibold tracking-tight text-background transition-transform hover:-rotate-6 boxy:rounded-sm"
+        >
+          dy
+        </Link>
 
-        <div className="flex-1" />
-
-        <DesktopNav items={MAIN_NAV} />
-
-        <div className="flex items-center *:first:mr-2">
-          {/* <CommandMenu posts={posts} /> */}
-          {/* <NavItemGitHub /> */}
-          <span className="mx-2 flex h-4 w-px bg-border" />
+        <nav className="flex items-center gap-0.5 sm:gap-1">
+          <SectionNav />
+          <span className="mx-1 h-4 w-px bg-border" aria-hidden />
           <ThemeToggle />
-          <MobileNav className="sm:hidden" items={MAIN_NAV} />
-        </div>
+        </nav>
       </div>
+
+      <div
+        aria-hidden
+        className="absolute inset-x-0 -bottom-px h-px scroll-progress bg-foreground/60"
+      />
     </SiteHeaderWrapper>
   );
 }

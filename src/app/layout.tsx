@@ -8,7 +8,7 @@ import type { WebSite, WithContext } from "schema-dts";
 import { Providers } from "@/components/providers";
 import { META_THEME_COLORS, SITE_INFO } from "@/config/site";
 import { USER } from "@/features/portfolio/data/user";
-import { fontMono, fontSans } from "@/lib/fonts";
+import { fontMono, fontSans, fontSerif } from "@/lib/fonts";
 
 function getWebSiteJsonLd(): WithContext<WebSite> {
   return {
@@ -26,6 +26,11 @@ const darkModeScript = String.raw`
     if (localStorage.theme === 'dark' || ((!('theme' in localStorage) || localStorage.theme === 'system') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
       document.querySelector('meta[name="theme-color"]').setAttribute('content', '${META_THEME_COLORS.dark}')
     }
+  } catch (_) {}
+
+  try {
+    var design = localStorage.getItem('design');
+    document.documentElement.dataset.design = design === 'boxy' ? 'boxy' : 'editorial';
   } catch (_) {}
 
   try {
@@ -98,7 +103,8 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${fontSans.variable} ${fontMono.variable}`}
+      data-design="editorial"
+      className={`${fontSans.variable} ${fontMono.variable} ${fontSerif.variable}`}
       suppressHydrationWarning
     >
       <head>

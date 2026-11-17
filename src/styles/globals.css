@@ -5,6 +5,8 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
+@custom-variant boxy (&:where([data-design="boxy"], [data-design="boxy"] *));
+
 @custom-variant supports-timeline-scroll {
   @supports (animation-timeline: scroll()) {
     @slot;
@@ -45,6 +47,7 @@
 
   --font-sans: var(--font-sans);
   --font-mono: var(--font-mono);
+  --font-serif: var(--font-serif);
 
   --shadow-popover: var(--shadow-popover);
 
@@ -58,6 +61,21 @@
   --animate-collapsible-fade-up:
     collapsible-up var(--tw-duration, 200ms) ease-out,
     fade-out var(--tw-duration, 200ms) ease-out;
+
+  --animate-rise: rise 700ms cubic-bezier(0.16, 1, 0.3, 1) both;
+
+  @keyframes rise {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+      filter: blur(4px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+      filter: none;
+    }
+  }
 
   @keyframes fade-in {
     from {
@@ -85,6 +103,43 @@
   /* Hide scrollbar for Chrome, Safari and Opera */
   &::-webkit-scrollbar {
     display: none;
+  }
+}
+
+/* Fades a block in as it scrolls into view; no-op where unsupported. */
+@utility reveal {
+  @supports (animation-timeline: view()) {
+    @media (prefers-reduced-motion: no-preference) {
+      animation: reveal-in linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 30%;
+    }
+  }
+}
+
+@utility scroll-progress {
+  transform-origin: left;
+  transform: scaleX(0);
+  @supports (animation-timeline: scroll()) {
+    animation: grow-x linear both;
+    animation-timeline: scroll(root);
+  }
+}
+
+@keyframes reveal-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes grow-x {
+  to {
+    transform: scaleX(1);
   }
 }
 
@@ -305,6 +360,20 @@
   /* html {
     @apply motion-safe:scroll-smooth;
   } */
+
+  [data-design="boxy"] body {
+    background-image: radial-gradient(
+      color-mix(in oklab, var(--edge) 80%, transparent) 1px,
+      transparent 0
+    );
+    background-size: 16px 16px;
+  }
+
+  :where(a, button, summary):focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
 
   body {
     @apply bg-background font-sans text-foreground antialiased;

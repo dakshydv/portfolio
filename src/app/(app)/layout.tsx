@@ -1,19 +1,19 @@
 import dynamic from "next/dynamic";
 
-import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 
-const ScrollToTop = dynamic(() =>
-  import("@/components/scroll-to-top").then((mod) => mod.ScrollToTop)
+const DesignDock = dynamic(() =>
+  import("@/components/design-dock").then((mod) => mod.DesignDock)
 );
 
 export default function AppLayout({ children }: { children: React.ReactNode }) {
   return (
     <>
       <SiteHeader />
-      <main className="max-w-screen overflow-x-hidden px-2">{children}</main>
-      {/* <SiteFooter /> */}
-      <ScrollToTop />
+      <main className="max-w-screen overflow-x-hidden boxy:px-3">
+        {children}
+      </main>
+      <DesignDock />
     </>
   );
 }
